@@ -1,8 +1,4 @@
-# Anton Hlushkov
-
-<div>
   IT Support Specialist • London, UK
-</div>
 
 ## Profile
 
