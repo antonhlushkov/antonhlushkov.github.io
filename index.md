@@ -4,3 +4,8 @@ Hi! I'm Anton.
 [Telegram](https://t.me/antonhlushkov) | [X](https://x.com/antonhlushkov) | [LinkedIn](https://linkedin.com/in/anton-hlushkov)
 
 
+<style>
+    body{
+        font-family: sans-serif;
+    }
+    </style>
