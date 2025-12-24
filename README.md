@@ -1,6 +1,6 @@
 # Anton Hlushkov
 
-<div style="text-align: center; margin-bottom: 30px; color: #555;">
+<div>
   IT Support Specialist • London, UK
 </div>
 
@@ -57,44 +57,9 @@ JavaScript (React.js, Next.js, Vue.js, Express.js) • HTML • CSS
 **Development Backend**  
 Python • Java (SpringBoot) • Kotlin (Android SDK) • PowerShell
 
-<hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+<hr>
 
-<div style="text-align: center; font-size: 0.9em; color: #777;">
+<div>
   This resume is hosted on GitHub Pages.<br>
   Open to IT Support, Helpdesk, and Junior Development opportunities in London (hybrid/remote preferred).
 </div>
-
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  h1 {
-    text-align: center;
-    border-bottom: none;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-  }
-  h2 {
-    border-bottom: 2px solid #000;
-    padding-bottom: 8px;
-    margin-top: 40px;
-  }
-  h3 {
-    margin-bottom: 5px;
-    font-size: 1.2em;
-  }
-  ul {
-    padding-left: 20px;
-  }
-  li {
-    margin-bottom: 8px;
-  }
-  strong {
-    color: #000;
-  }
-</style>
