@@ -7,6 +7,7 @@ Hi! I'm Anton.
 <style>
     body{
         font-family: sans-serif;
+        background-color:black;
     }
     </style>
     </head>
