@@ -1,6 +1,6 @@
 Hi! I'm Anton.
 
 ## Links
-[Telegram](t.me/antonhlushkov) | [X](x.com/antonhlushkov) | [LinkedIn](linkedin.com/in/anton-hlushkov)
+[Telegram](https://t.me/antonhlushkov) | [X](https://x.com/antonhlushkov) | [LinkedIn](https://linkedin.com/in/anton-hlushkov)
 
 
