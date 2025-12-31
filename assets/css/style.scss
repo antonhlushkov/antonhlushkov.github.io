@@ -3,51 +3,37 @@
 
 @import "{{ site.theme }}";
 
-/* Layout container */
-.wrapper {
-  max-width: none;
-  display: flex;
+/* Card styling */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
-/* Header → Sidebar */
-.site-header {
-  width: 220px;
-  min-height: 100vh;
-  background-color: #2c3e50;
-  border-right: 1px solid #ddd;
-  padding: 20px;
+/* Section timeline container */
+.timeline {
+  position: relative;
 }
 
-/* Move main content to the right */
-.page-content {
-  flex: 1;
-  padding: 40px;
+/* Meta text (dates, role) */
+.meta {
+  color: #6b7280;
+  font-size: 0.9em;
+  margin-bottom: 12px;
 }
 
-/* Navigation styling */
-.site-nav {
-  float: none;
+/* Lists inside cards */
+.card ul {
+  padding-left: 20px;
 }
 
-.site-nav .page-link {
-  display: block;
-  margin: 10px 0;
-  color: white;
+.card li {
+  margin-bottom: 6px;
 }
 
-/* Title color */
-.site-title {
-  color: white;
+/* Headings inside cards */
+.card h3 {
+  margin-top: 0;
 }
-
-@media (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-  }
-
-  .site-header {
-    width: 100%;
-    min-height: auto;
-  }
-}
-
