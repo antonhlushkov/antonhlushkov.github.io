@@ -1,0 +1,6 @@
+theme: minima
+title: Anton
+
+header_pages:
+  - index.md
+  - about.md
