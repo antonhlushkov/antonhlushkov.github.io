@@ -128,3 +128,30 @@ footer p {
 
 #posts ul { list-style: none; padding-left: 0; }
 #posts li { margin-bottom: 1.5em; }
+
+.map-wrapper {
+  position: relative;
+  height: 400px; /* Match your map height */
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.map-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Adjust how much of the bottom fades (larger = more fade area) */
+  pointer-events: none; /* Allows clicks/drags to pass through to the map */
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0) 0%,   /* Transparent at the start (middle of map) */
+    rgba(255, 255, 255, 0.8) 70%, /* Start fading */
+    rgba(255, 255, 255, 1) 100%   /* Fully white at bottom */
+  );
+}
