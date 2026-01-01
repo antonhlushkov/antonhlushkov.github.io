@@ -1,5 +1,6 @@
 ---
 title: Home
+has_map: true
 ---
 {% include map.html %}
 📍London, UK
