@@ -13,6 +13,10 @@ title: Home
   title="Tip"
   text="Available for hire" %}
 
+## Projects
+
+Coming soon.
+
 ## Posts
 
 <ul>
