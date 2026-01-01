@@ -27,11 +27,13 @@ footer p {
   margin: 0;
   font-size: 10px;
 }
-
 .gh-alert {
+  position: relative; /* Добавляем, чтобы псевдоэлемент позиционировался относительно алерта */
+  overflow: hidden;   /* Обрезаем выходящий градиент по высоте и скруглению, чтобы не торчал в углах */
+
   display: flex;
   gap: 12px;
-  align-items: flex-start; /* оставляем flex-start, чтобы верхний край был выровнен */
+  align-items: flex-start;
 
   padding: 16px;
   margin: 16px 0;
@@ -44,15 +46,40 @@ footer p {
   line-height: 1;
 }
 
-/* Альтернативный вариант (проще и надёжнее) */
+/* Горизонтальный градиент, выходящий за рамки */
+.gh-alert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20%;   /* Расширяем влево */
+  right: -20%;  /* Расширяем вправо */
+  height: 100%;
+  background: linear-gradient(to right, 
+    rgba(255,255,255,0),   /* прозрачно слева */
+    #e0e7ff 30%,           /* лёгкий синий оттенок в центре */
+    #c7d2fe 50%,
+    #e0e7ff 70%,
+    rgba(255,255,255,0)    /* прозрачно справа */
+  );
+  opacity: 0.6;            /* Лёгкая прозрачность, чтобы не перебивать основной фон */
+  z-index: 0;              /* За контентом, но перед основным фоном */
+  pointer-events: none;    /* Не мешает кликам */
+}
+
+/* Чтобы контент алерта был поверх градиента */
+.gh-alert > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Остальные твои стили без изменений */
 .gh-alert-icon {
   font-size: 19px;
   line-height: 1;
   flex-shrink: 0;
-  align-self: center; /* ← Это самый простой и надёжный способ */
+  align-self: center;
 }
 
-/* Если хочешь ещё точнее — можно добавить небольшой отступ снизу у заголовка */
 .gh-alert-title {
   font-weight: 600;
   margin-bottom: 4px;
@@ -62,7 +89,7 @@ footer p {
   margin: 0;
 }
 
-/* Цвета */
+/* Цвета бордера */
 .gh-alert-note       { border-left-color: #0969da; }
 .gh-alert-tip        { border-left-color: #1a7f37; }
 .gh-alert-important  { border-left-color: #8250df; }
@@ -71,4 +98,3 @@ footer p {
 
 #posts ul { list-style: none; padding-left: 0; }
 #posts li { margin-bottom: 1.5em; }
-
