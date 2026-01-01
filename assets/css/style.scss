@@ -40,28 +40,15 @@ footer p {
   border-radius: 6px;
   background-color: #f6f8fa;
 
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.gh-alert-icon {
-  /* Убрали margin-top */
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
-  flex-shrink: 0;
-
-  /* Центрируем эмодзи по вертикали относительно всего блока */
-  display: flex;
-  align-items: center;
-  height: 100%; /* растягиваем контейнер иконки на всю высоту .gh-alert */
 }
 
 /* Альтернативный вариант (проще и надёжнее) */
 .gh-alert-icon {
-  font-size: 16px;
+  font-size: 19px;
   line-height: 1;
   flex-shrink: 0;
-  
   align-self: center; /* ← Это самый простой и надёжный способ */
 }
 
