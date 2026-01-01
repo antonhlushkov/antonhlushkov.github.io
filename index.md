@@ -1,7 +1,7 @@
 ---
 title: Home
 ---
-<pre style="font-family:'MS PGothic';">
+<pre style="font-family:'MS PGothic'; font-size:12px;">
 ----------------------------------------------------------------
 •	Windows OS administration
 •	Hardware & peripheral support
