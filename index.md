@@ -13,7 +13,23 @@ title: Home
   title="Tip"
   text="Available for hire" %}
 
-## Projects
+## Posts
+
+<ul>
+  {% for post in site.posts limit:10 %}
+    <li>
+      <strong><a href="{{ post.url | relative_url }}">{{ post.title }}</a></strong> 
+      <span style="color: #666;">— {{ post.date | date: "%B %d, %Y" }}</span>
+      {% if post.excerpt %}
+        <p>{{ post.excerpt | strip_html | truncate: 200 }}</p>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% if site.posts.size > 10 %}
+  <p><a href="/posts/">View all posts →</a></p>
+{% endif %}
 
 
 
