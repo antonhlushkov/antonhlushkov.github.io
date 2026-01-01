@@ -41,25 +41,32 @@ Commons Attribution-NoDerivatives 4.0 International License</a></p>
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // London center coordinates
+document.addEventListener('DOMContentLoaded', function() {
+    // London center
     var myLat = 51.5074;
     var myLon = -0.1278;
     var zoomLevel = 14;
 
-    // Clean map without attribution or controls
     var map = L.map('map', {
-      zoomControl: false,  // No zoom buttons
-      attributionControl: false  // No attribution
+      zoomControl: false,
+      attributionControl: false
     }).setView([myLat, myLon], zoomLevel);
 
-    // Tiles WITHOUT attribution text
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: ''  // Empty attribution
+      attribution: ''
     }).addTo(map);
 
-    // Only a simple marker, no popup
-    L.marker([myLat, myLon]).addTo(map);
+    // Custom red pin icon (simple and clean)
+    var redIcon = L.icon({
+      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    L.marker([myLat, myLon], {icon: redIcon}).addTo(map);
   });
 </script>
