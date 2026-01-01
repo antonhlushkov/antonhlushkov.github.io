@@ -6,4 +6,4 @@ Index test
 
 <footer>
     <p>© 2024 Anton Hlushkov</p>    
-</body>
+</footer>
