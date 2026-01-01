@@ -4,8 +4,8 @@ title: "Setting up the things"
 date: 2026-01-01
 ---
 
-<h1>{{ page.title }}</h1>
-<p><b>{{ post.date | date: "%B %d, %Y" }}</b></p>
+<h2>{{ page.title }}</h2>
+<p>{{ page.date | date: "%B %d, %Y" }}</p>
 
 This is the content of my blog post. Write in Markdown here.
 This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.
