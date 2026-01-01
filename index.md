@@ -24,9 +24,6 @@ Coming soon.
     <li>
       <strong><a href="{{ post.url | relative_url }}">{{ post.title }}</a></strong> 
       <span style="color: #666;">— {{ post.date | date: "%B %d, %Y" }}</span>
-      {% if post.excerpt %}
-        <p>{{ post.excerpt | strip_html | truncate: 200 }}</p>
-      {% endif %}
     </li>
   {% endfor %}
 </ul>
