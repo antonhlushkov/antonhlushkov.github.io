@@ -9,7 +9,12 @@ _London, UK_
 {% include alert.html
   type="note"
   title="Note"
-  content="Useful information that users should know." %}
+  text="Useful information that users should know." %}
+
+{% include alert.html
+  type="warning"
+  title="Warning"
+  text="Urgent info that needs immediate user attention." %}
 
 
 <footer>

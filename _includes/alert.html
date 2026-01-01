@@ -1,13 +1,18 @@
-<div class="alert alert-{{ include.type }}">
-  <div class="alert-icon">
-    {% if include.type == "note" %}ℹ️{% endif %}
-    {% if include.type == "tip" %}💡{% endif %}
-    {% if include.type == "important" %}📌{% endif %}
-    {% if include.type == "warning" %}⚠️{% endif %}
-    {% if include.type == "caution" %}⛔{% endif %}
+<div class="gh-alert gh-alert-{{ include.type }}">
+  <div class="gh-alert-icon">
+    {% case include.type %}
+      {% when "note" %}ℹ️
+      {% when "tip" %}💡
+      {% when "important" %}📌
+      {% when "warning" %}⚠️
+      {% when "caution" %}⛔
+    {% endcase %}
   </div>
-  <div class="alert-content">
-    <strong>{{ include.title }}</strong><br>
-    {{ include.content }}
+
+  <div class="gh-alert-content">
+    <div class="gh-alert-title">
+      {{ include.title }}
+    </div>
+    <p>{{ include.text }}</p>
   </div>
 </div>
