@@ -3,13 +3,7 @@
 
 @import "{{ site.theme }}";
 
-body{
-  font-family: monospace !important;
-  font-size:10px;
-}
-
 .markdown-body{
-  font-family: monospace !important;
   font-size:12px;
 }
 
@@ -31,5 +25,5 @@ footer {
   
 footer p {
   margin: 0;
-  font-size: 9px;
-    }
+  font-size: 10px;
+}

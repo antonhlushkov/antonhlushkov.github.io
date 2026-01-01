@@ -2,7 +2,7 @@
 title: Home
 ---
 
-Index test
+IT-Developer.
 
 <footer>
     <p>© 2024 Anton Hlushkov</p>    
