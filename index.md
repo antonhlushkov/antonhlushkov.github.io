@@ -6,20 +6,17 @@ _London, UK_
 
 **A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.**
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+{% alert tip %}
+This is a tip!
+{% endalert %}
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
+{% alert important %}
+This is important!
+{% endalert %}
 
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+{% alert warning %}
+This is a warning!
+{% endalert %}
 
 <footer>
     <p>© 2024 Anton Hlushkov</p>    
