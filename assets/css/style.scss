@@ -28,8 +28,8 @@ footer p {
   font-size: 10px;
 }
 .gh-alert {
-  position: relative; /* Добавляем, чтобы псевдоэлемент позиционировался относительно алерта */
-  overflow: hidden;   /* Обрезаем выходящий градиент по высоте и скруглению, чтобы не торчал в углах */
+  position: relative;
+  overflow: hidden; /* Обрезаем по скруглению и высоте */
 
   display: flex;
   gap: 12px;
@@ -46,33 +46,72 @@ footer p {
   line-height: 1;
 }
 
-/* Горизонтальный градиент, выходящий за рамки */
+/* Основной горизонтальный градиент */
 .gh-alert::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -20%;   /* Расширяем влево */
-  right: -20%;  /* Расширяем вправо */
+  left: 0;              /* Начинаем ровно от левого края (бордер будет поверх) */
+  width: 120%;          /* Выходим за правый край на 20% */
   height: 100%;
-  background: linear-gradient(to right, 
-    rgba(255,255,255,0),   /* прозрачно слева */
-    #e0e7ff 30%,           /* лёгкий синий оттенок в центре */
-    #c7d2fe 50%,
-    #e0e7ff 70%,
-    rgba(255,255,255,0)    /* прозрачно справа */
+
+  /* Градиент будет переопределяться для каждого типа */
+  background: linear-gradient(to right,
+    transparent 0px,              /* Прозрачно на самом левом краю (под бордером) */
+    var(--gradient-start) 4px,    /* Цвет бордера начинается сразу после бордера */
+    var(--gradient-middle) 40%,
+    var(--gradient-end) 80%,
+    transparent 100%
   );
-  opacity: 0.6;            /* Лёгкая прозрачность, чтобы не перебивать основной фон */
-  z-index: 0;              /* За контентом, но перед основным фоном */
-  pointer-events: none;    /* Не мешает кликам */
+
+  opacity: 0.5; /* Можно регулировать интенсивность */
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* Чтобы контент алерта был поверх градиента */
+/* Контент поверх градиента */
 .gh-alert > * {
   position: relative;
   z-index: 1;
 }
 
-/* Остальные твои стили без изменений */
+/* Переменные и градиенты для каждого типа */
+.gh-alert-note {
+  border-left-color: #0969da;
+  --gradient-start: #0969da;
+  --gradient-middle: #a6c8ff;
+  --gradient-end: #e0eaff;
+}
+
+.gh-alert-tip {
+  border-left-color: #1a7f37;
+  --gradient-start: #1a7f37;
+  --gradient-middle: #a8e4b8;
+  --gradient-end: #e6f7ea;
+}
+
+.gh-alert-important {
+  border-left-color: #8250df;
+  --gradient-start: #8250df;
+  --gradient-middle: #d4c5f9;
+  --gradient-end: #f0e8ff;
+}
+
+.gh-alert-warning {
+  border-left-color: #9a6700;
+  --gradient-start: #9a6700;
+  --gradient-middle: #f9d17a;
+  --gradient-end: #fff8e8;
+}
+
+.gh-alert-caution {
+  border-left-color: #cf222e;
+  --gradient-start: #cf222e;
+  --gradient-middle: #f9a8a8;
+  --gradient-end: #ffe8e8;
+}
+
+/* Остальные стили без изменений */
 .gh-alert-icon {
   font-size: 19px;
   line-height: 1;
@@ -88,13 +127,6 @@ footer p {
 .gh-alert-content p {
   margin: 0;
 }
-
-/* Цвета бордера */
-.gh-alert-note       { border-left-color: #0969da; }
-.gh-alert-tip        { border-left-color: #1a7f37; }
-.gh-alert-important  { border-left-color: #8250df; }
-.gh-alert-warning    { border-left-color: #9a6700; }
-.gh-alert-caution    { border-left-color: #cf222e; }
 
 #posts ul { list-style: none; padding-left: 0; }
 #posts li { margin-bottom: 1.5em; }
