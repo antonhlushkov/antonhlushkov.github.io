@@ -41,20 +41,25 @@ Commons Attribution-NoDerivatives 4.0 International License</a></p>
 </footer>
 
 <script>
-  // Change these coordinates to your exact location
-  var myLat = 37.7749;  // Example: San Francisco latitude
-  var myLon = -122.4194; // Example: San Francisco longitude
-  var zoomLevel = 14;    // Adjust zoom: 13 = city, 15-16 = neighborhood/street
+  document.addEventListener('DOMContentLoaded', function() {
+    // London center coordinates
+    var myLat = 51.5074;
+    var myLon = -0.1278;
+    var zoomLevel = 14;
 
-  var map = L.map('map').setView([myLat, myLon], zoomLevel);
+    // Clean map without attribution or controls
+    var map = L.map('map', {
+      zoomControl: false,  // No zoom buttons
+      attributionControl: false  // No attribution
+    }).setView([myLat, myLon], zoomLevel);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 19,
-  }).addTo(map);
+    // Tiles WITHOUT attribution text
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: ''  // Empty attribution
+    }).addTo(map);
 
-  // Add a nice marker with popup
-  L.marker([myLat, myLon]).addTo(map)
-    .bindPopup('<b>Hello!</b><br>This is my location.')
-    .openPopup();
+    // Only a simple marker, no popup
+    L.marker([myLat, myLon]).addTo(map);
+  });
 </script>
