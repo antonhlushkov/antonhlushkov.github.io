@@ -19,9 +19,9 @@ Coming soon.
 
 ## Posts
 
-<ul>
+<ul class="posts">
   {% for post in site.posts limit:10 %}
-    <li>
+    <li class="posts">
       <strong><a href="{{ post.url | relative_url }}">{{ post.title }}</a></strong> 
       <span style="color: #666;">— {{ post.date | date: "%B %d, %Y" }}</span>
     </li>
