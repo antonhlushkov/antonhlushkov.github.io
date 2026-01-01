@@ -9,9 +9,9 @@ title: Home
 
 
 {% include alert.html
-  type="tip"
-  title="Tip"
-  text="Available for hire" %}
+  type="note"
+  title="Note"
+  text="Available for hire." %}
 
 ## Projects
 
@@ -34,8 +34,6 @@ Coming soon.
 {% if site.posts.size > 10 %}
   <p><a href="/posts/">View all posts →</a></p>
 {% endif %}
-
-
 
 <footer>
     <p>© 2026 Anton Hlushkov</p>
