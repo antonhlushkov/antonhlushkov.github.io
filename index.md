@@ -2,7 +2,7 @@
 title: Home
 ---
 
-📍_London, UK_
+📍London, UK
 
 **A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.**
 
@@ -13,7 +13,8 @@ title: Home
   title="Tip"
   text="Available for hire" %}
 
-# Projects
+## Projects
+
 
 
 <footer>
