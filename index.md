@@ -1,7 +1,7 @@
 ---
 title: Home
 ---
-
+{% include map.html %}
 📍London, UK
 
 
