@@ -5,6 +5,7 @@ date: 2026-01-01
 ---
 
 <h1>{{ page.title }}</h1>
+<p>{{ page.date }}<p>
 
 This is the content of my blog post. Write in Markdown here.
 This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.This is the content of my blog post. Write in Markdown here.
