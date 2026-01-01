@@ -28,10 +28,10 @@ footer p {
   font-size: 10px;
 }
 
-
 .gh-alert {
   display: flex;
   gap: 12px;
+  align-items: flex-start; /* оставляем flex-start, чтобы верхний край был выровнен */
 
   padding: 16px;
   margin: 16px 0;
@@ -45,12 +45,27 @@ footer p {
 }
 
 .gh-alert-icon {
-  margin-top: 3px;
+  /* Убрали margin-top */
   font-size: 16px;
   line-height: 1;
   flex-shrink: 0;
+
+  /* Центрируем эмодзи по вертикали относительно всего блока */
+  display: flex;
+  align-items: center;
+  height: 100%; /* растягиваем контейнер иконки на всю высоту .gh-alert */
 }
 
+/* Альтернативный вариант (проще и надёжнее) */
+.gh-alert-icon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+  
+  align-self: center; /* ← Это самый простой и надёжный способ */
+}
+
+/* Если хочешь ещё точнее — можно добавить небольшой отступ снизу у заголовка */
 .gh-alert-title {
   font-weight: 600;
   margin-bottom: 4px;
@@ -66,4 +81,3 @@ footer p {
 .gh-alert-important  { border-left-color: #8250df; }
 .gh-alert-warning    { border-left-color: #9a6700; }
 .gh-alert-caution    { border-left-color: #cf222e; }
-
