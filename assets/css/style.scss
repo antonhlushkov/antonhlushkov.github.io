@@ -29,7 +29,7 @@ footer p {
 }
 .gh-alert {
   position: relative;
-  overflow: hidden; /* Обрезаем по скруглению и высоте */
+  overflow: hidden;
 
   display: flex;
   gap: 12px;
@@ -46,72 +46,70 @@ footer p {
   line-height: 1;
 }
 
-/* Основной горизонтальный градиент */
+/* Лёгкий горизонтальный градиент */
 .gh-alert::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;              /* Начинаем ровно от левого края (бордер будет поверх) */
-  width: 120%;          /* Выходим за правый край на 20% */
+  left: 0;
+  width: 130%;              /* Сильно выходим за правый край */
   height: 100%;
 
-  /* Градиент будет переопределяться для каждого типа */
   background: linear-gradient(to right,
-    transparent 0px,              /* Прозрачно на самом левом краю (под бордером) */
-    var(--gradient-start) 4px,    /* Цвет бордера начинается сразу после бордера */
-    var(--gradient-middle) 40%,
-    var(--gradient-end) 80%,
+    var(--gradient-start) 0px,      /* Точный цвет бордера в начале */
+    var(--gradient-middle) 30%,
+    var(--gradient-end) 70%,
     transparent 100%
   );
 
-  opacity: 0.5; /* Можно регулировать интенсивность */
+  opacity: 0.25;            /* Очень лёгкий, чтобы не перебивать текст */
   z-index: 0;
   pointer-events: none;
 }
 
-/* Контент поверх градиента */
+/* Контент поверх */
 .gh-alert > * {
   position: relative;
   z-index: 1;
 }
 
-/* Переменные и градиенты для каждого типа */
+/* Цвета для каждого типа — пастельные и гармоничные */
 .gh-alert-note {
   border-left-color: #0969da;
   --gradient-start: #0969da;
-  --gradient-middle: #a6c8ff;
-  --gradient-end: #e0eaff;
+  --gradient-middle: #d0e2ff;
+  --gradient-end: #f0f6ff;
 }
 
 .gh-alert-tip {
   border-left-color: #1a7f37;
   --gradient-start: #1a7f37;
-  --gradient-middle: #a8e4b8;
-  --gradient-end: #e6f7ea;
+  --gradient-middle: #d0f0d7;
+  --gradient-end: #f0faf2;
 }
 
 .gh-alert-important {
   border-left-color: #8250df;
   --gradient-start: #8250df;
-  --gradient-middle: #d4c5f9;
-  --gradient-end: #f0e8ff;
+  --gradient-middle: #e0d4ff;
+  --gradient-end: #f5f0ff;
 }
 
 .gh-alert-warning {
   border-left-color: #9a6700;
   --gradient-start: #9a6700;
-  --gradient-middle: #f9d17a;
-  --gradient-end: #fff8e8;
+  --gradient-middle: #ffe8a8;
+  --gradient-end: #fffcf0;
 }
 
 .gh-alert-caution {
   border-left-color: #cf222e;
   --gradient-start: #cf222e;
-  --gradient-middle: #f9a8a8;
-  --gradient-end: #ffe8e8;
+  --gradient-middle: #ffd4d4;
+  --gradient-end: #fff0f0;
 }
 
-/* Остальные стили без изменений */
+/* Остальное без изменений */
 .gh-alert-icon {
   font-size: 19px;
   line-height: 1;
