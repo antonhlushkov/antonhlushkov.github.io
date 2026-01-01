@@ -2,6 +2,8 @@
 title: Home
 ---
 
+_London, UK_
+
 **A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.**
 
 <footer>
