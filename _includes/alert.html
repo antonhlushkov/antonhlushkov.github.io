@@ -1,0 +1,13 @@
+<div class="alert alert-{{ include.type }}">
+  <div class="alert-icon">
+    {% if include.type == "note" %}ℹ️{% endif %}
+    {% if include.type == "tip" %}💡{% endif %}
+    {% if include.type == "important" %}📌{% endif %}
+    {% if include.type == "warning" %}⚠️{% endif %}
+    {% if include.type == "caution" %}⛔{% endif %}
+  </div>
+  <div class="alert-content">
+    <strong>{{ include.title }}</strong><br>
+    {{ include.content }}
+  </div>
+</div>
