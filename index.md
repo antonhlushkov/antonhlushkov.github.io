@@ -59,15 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Custom red pin icon (simple and clean)
 var redIcon = L.icon({
-      iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png',  // High-res base (sharp!)
-      shadowUrl: '',  // Keep no shadow
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34]
+      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+      // shadowUrl removed on purpose → no shadow!
+      iconSize: [25, 41],     // size of the icon
+      iconAnchor: [12, 41],   // point of the icon which will correspond to marker's location
+      popupAnchor: [1, -34]   // point from which the popup should open relative to the iconAnchor
     });
 
-    // Add a red tint using CSS filter (clean and no quality loss)
-    L.marker([myLat, myLon], {icon: redIcon}).addTo(map)
-      .getElement().querySelector('img').style.filter = 'hue-rotate(120deg) saturate(500%) brightness(80%)';
+    L.marker([myLat, myLon], {icon: redIcon}).addTo(map);
   });
 </script>
