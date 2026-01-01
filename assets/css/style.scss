@@ -20,6 +20,7 @@ footer {
   padding: 1.25em;
   color: gray;
   margin-top: 40px;
+  border-radius: 4px;
 }
   
 footer p {
@@ -28,43 +29,46 @@ footer p {
 }
 
 .gh-alert {
-  position: relative; /* Необходимо для позиционирования псевдоэлемента */
-  overflow: hidden;   /* Опционально, чтобы избежать мелких артефактов */
-
-  /* Убираем старый solid border */
-  // border-left: 4px solid;  /* Удалить или закомментировать */
-
-  padding: 12px;
-  margin: 16px 0;
-  background-color: #f6f8fa;
-border-radius: 7px;
-  /* Остальное без изменений */
   display: flex;
   gap: 12px;
-  align-items: flex-start;
+  align-items: flex-start; /* оставляем flex-start, чтобы верхний край был выровнен */
+
+  padding: 16px;
+  margin: 16px 0;
+
+  border-left: 4px solid;
+  border-radius: 6px;
+  background-color: #f6f8fa;
+
   font-size: 12px;
   line-height: 1;
 }
 
-/* Псевдоэлемент для горизонтального градиента на левой стороне */
-.gh-alert::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 4px; /* Толщина бордера */
-
-  /* Горизонтальный градиент (left → right) */
-  background: linear-gradient(to right, #ff0000, #00ff00); /* Пример: красный → зелёный */
-
-  /* Для плавного перехода в углах, если нужен border-radius (опционально) */
-  /* border-radius: 4px 0 0 4px; */
+/* Альтернативный вариант (проще и надёжнее) */
+.gh-alert-icon {
+  font-size: 19px;
+  line-height: 1;
+  flex-shrink: 0;
+  align-self: center; /* ← Это самый простой и надёжный способ */
 }
 
-/* Если хочешь разные градиенты для разных типов алертов */
-.gh-alert-note::before      { background: linear-gradient(to right, #0969da, #40c4ff); } /* Синий → светло-синий */
-.gh-alert-tip::before       { background: linear-gradient(to right, #1a7f37, #7cbf00); }
-.gh-alert-important::before { background: linear-gradient(to right, #8250df, #c678dd); }
-.gh-alert-warning::before   { background: linear-gradient(to right, #9a6700, #d4a72c); }
-.gh-alert-caution::before   { background: linear-gradient(to right, #cf222e, #f66a6a); }
+/* Если хочешь ещё точнее — можно добавить небольшой отступ снизу у заголовка */
+.gh-alert-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.gh-alert-content p {
+  margin: 0;
+}
+
+/* Цвета */
+.gh-alert-note       { border-left-color: #0969da; }
+.gh-alert-tip        { border-left-color: #1a7f37; }
+.gh-alert-important  { border-left-color: #8250df; }
+.gh-alert-warning    { border-left-color: #9a6700; }
+.gh-alert-caution    { border-left-color: #cf222e; }
+
+#posts ul { list-style: none; padding-left: 0; }
+#posts li { margin-bottom: 1.5em; }
+
