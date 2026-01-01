@@ -9,7 +9,7 @@ title: Home
 
 
 {% include alert.html
-  type="important"
+  type="note"
   title="Note"
   text="Available for hire." %}
 
