@@ -11,9 +11,10 @@ has_map: true
   title="Note"
   text="Available for hire. Based in London, UK." %}
 
-## Projects
+## Link tree
 
-Coming soon.
+- [Bluesky](https://bsky.app/profile/hlu.bsky.social)
+- [X](https://x.com/antonhlushkov)
 
 ## Posts
 
