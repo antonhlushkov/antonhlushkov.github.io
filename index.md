@@ -4,12 +4,14 @@ has_map: true
 ---
 {% include map.html %}
 
-**A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.**
+A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.
 
+<!--
 {% include alert.html
   type="note"
   title="Note"
   text="Available for hire. Based in London, UK." %}
+-->
 
 ## Link tree
 
