@@ -14,7 +14,7 @@
 // =============================================================================
 
 :root {
-  // Colors - Light Mode
+  // Colors
   --color-text: #24292f;
   --color-background: #ffffff;
   --color-link: #8b4513;
@@ -31,17 +31,6 @@
   --container-max-width: 720px;
   --spacing-base: 1rem;
   --spacing-large: 2.5rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #e6edf3;
-    --color-background: #0d1117;
-    --color-link: #d2691e;
-    --color-link-hover: #ff8c42;
-    --color-footer-text: #8b949e;
-    --color-footer-bg: #161b22;
-  }
 }
 
 
