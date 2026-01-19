@@ -4,11 +4,8 @@
 @import "{{ site.theme }}";
 
 .markdown-body{
-  font-size:14px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.markdown-body p{
   font-size:16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 a{
