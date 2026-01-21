@@ -56,6 +56,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+.markdown-body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 0.3) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 100;
 }
 
 a {
@@ -88,7 +107,7 @@ a {
 // =============================================================================
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-candara);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   color: var(--color-text);
   font-weight: 600;
   line-height: 1.3;
@@ -141,16 +160,17 @@ h6 {
 
 footer {
   text-align: center;
-  padding: 1.5em;
+  padding: 2em 1.5em;
   color: var(--color-footer-text);
-  background-color: var(--color-footer-bg);
+  background-color: transparent;
   margin-top: var(--spacing-large);
-  border-radius: 6px;
+  border-top: 1px solid #e5e7eb;
   font-family: var(--font-system);
+  font-size: 13px;
+  letter-spacing: 0.4px;
   
   p {
     margin: 0;
-    font-size: 14px;
     line-height: 1.6;
     letter-spacing: 0.2px;
   }
