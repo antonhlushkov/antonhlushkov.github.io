@@ -2,6 +2,9 @@
 title: Home
 has_map: true
 ---
+
+London, UK 🇬🇧
+
 {% include map.html %}
 
 A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.
