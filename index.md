@@ -3,6 +3,8 @@ title: Home
 has_map: true
 ---
 
+{% include nodes.html %}
+
 London, UK 🇬🇧
 
 {% include map.html %}

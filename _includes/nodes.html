@@ -1,0 +1,260 @@
+<style>
+/* ===== GRAPH COMPONENT STYLES ===== */
+.obsidian-graph {
+  width: 100%;
+  height: 100%;
+  background: #0f1117;
+  overflow: hidden;
+  position: relative;
+}
+
+.obsidian-graph svg {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.obsidian-graph .link {
+  stroke: #3a3f4b;
+  stroke-width: 1.2;
+}
+
+.obsidian-graph .node circle {
+  fill: #1e222c;
+  stroke: #7aa2f7;
+  stroke-width: 1.5;
+}
+
+.obsidian-graph .node:hover circle {
+  stroke: #a6bdfc;
+}
+
+.obsidian-graph .node text {
+  fill: #cdd6f4;
+  font-size: 12px;
+  text-anchor: middle;
+  dy: 4;
+  pointer-events: none;
+}
+</style>
+<div style="margin:0; background:#0f1117;">
+
+<!-- ===== CONTAINER (CHANGE SIZE FREELY) ===== -->
+<div id="graph" style="width:100vw; height:100vh;"></div>
+
+<script>
+/* ==========================================================
+   OBSIDIAN-LIKE GRAPH COMPONENT
+   ========================================================== */
+
+function createGraph(container, nodes, links, options = {}) {
+
+  /* ---------- OPTIONS ---------- */
+  const SPRING_LENGTH   = options.springLength   ?? 120;
+  const SPRING_FORCE    = options.springStrength ?? 0.015;
+  const REPULSION_FORCE = options.repulsion      ?? 6000;
+  const DAMPING         = options.damping        ?? 0.82;
+
+  /* ---------- DOM ---------- */
+  container.classList.add("obsidian-graph");
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  const viewport = document.createElementNS(svg.namespaceURI, "g");
+
+  svg.appendChild(viewport);
+  container.appendChild(svg);
+
+  const bounds = () => container.getBoundingClientRect();
+
+  /* ---------- STATE ---------- */
+  let scale = 1;
+  let panX = bounds().width / 2;
+  let panY = bounds().height / 2;
+  let panning = false;
+
+  const nodeById = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+  /* ---------- INITIAL CENTER SPAWN ---------- */
+  const radius = 140;
+  nodes.forEach((n, i) => {
+    const a = (i / nodes.length) * Math.PI * 2;
+    n.x = Math.cos(a) * radius;
+    n.y = Math.sin(a) * radius;
+    n.vx = 0;
+    n.vy = 0;
+  });
+
+  /* ---------- SVG ELEMENTS ---------- */
+  const linkEls = links.map(l => {
+    const el = document.createElementNS(svg.namespaceURI, "line");
+    el.classList.add("link");
+    viewport.appendChild(el);
+    return { el, a: nodeById[l.a], b: nodeById[l.b] };
+  });
+
+  const nodeEls = nodes.map(n => {
+    const g = document.createElementNS(svg.namespaceURI, "g");
+    g.classList.add("node");
+
+    const c = document.createElementNS(svg.namespaceURI, "circle");
+    c.setAttribute("r", 22);
+
+    const t = document.createElementNS(svg.namespaceURI, "text");
+    t.textContent = n.id;
+
+    g.append(c, t);
+    viewport.appendChild(g);
+
+    // Link to note
+    if (n.url) {
+      g.addEventListener("dblclick", () => {
+        window.location.href = n.url;
+      });
+    }
+
+    enableDrag(g, n);
+    return { g, n };
+  });
+
+  /* ---------- PHYSICS LOOP ---------- */
+  function tick() {
+
+    // Springs
+    for (const l of linkEls) {
+      const dx = l.b.x - l.a.x;
+      const dy = l.b.y - l.a.y;
+      const d = Math.hypot(dx, dy) || 1;
+
+      const f = (d - SPRING_LENGTH) * SPRING_FORCE;
+      const fx = f * dx / d;
+      const fy = f * dy / d;
+
+      l.a.vx += fx;
+      l.a.vy += fy;
+      l.b.vx -= fx;
+      l.b.vy -= fy;
+    }
+
+    // Repulsion (cutoff for perf)
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 > 40000) continue;
+
+        const d = Math.sqrt(d2) || 1;
+        const f = REPULSION_FORCE / d2;
+        const fx = f * dx / d;
+        const fy = f * dy / d;
+
+        a.vx -= fx; a.vy -= fy;
+        b.vx += fx; b.vy += fy;
+      }
+    }
+
+    // Integrate
+    for (const n of nodes) {
+      n.x += n.vx;
+      n.y += n.vy;
+      n.vx *= DAMPING;
+      n.vy *= DAMPING;
+    }
+
+    render();
+    requestAnimationFrame(tick);
+  }
+
+  /* ---------- RENDER ---------- */
+  function render() {
+    for (const l of linkEls) {
+      l.el.setAttribute("x1", l.a.x);
+      l.el.setAttribute("y1", l.a.y);
+      l.el.setAttribute("x2", l.b.x);
+      l.el.setAttribute("y2", l.b.y);
+    }
+
+    for (const o of nodeEls) {
+      o.g.setAttribute("transform", `translate(${o.n.x},${o.n.y})`);
+    }
+  }
+
+  /* ---------- INTERACTION ---------- */
+  function enableDrag(el, n) {
+    let dragging = false;
+
+    el.addEventListener("mousedown", e => {
+      dragging = true;
+      e.stopPropagation();
+    });
+
+    window.addEventListener("mousemove", e => {
+      if (!dragging) return;
+      n.x += e.movementX / scale;
+      n.y += e.movementY / scale;
+      n.vx = n.vy = 0;
+    });
+
+    window.addEventListener("mouseup", () => dragging = false);
+  }
+
+  svg.addEventListener("wheel", e => {
+    e.preventDefault();
+    scale *= e.deltaY > 0 ? 0.9 : 1.1;
+    updateView();
+  });
+
+  svg.addEventListener("mousedown", e => {
+    if (e.target === svg) panning = true;
+  });
+
+  window.addEventListener("mousemove", e => {
+    if (!panning) return;
+    panX += e.movementX;
+    panY += e.movementY;
+    updateView();
+  });
+
+  window.addEventListener("mouseup", () => panning = false);
+
+  function updateView() {
+    viewport.setAttribute(
+      "transform",
+      `translate(${panX},${panY}) scale(${scale})`
+    );
+  }
+
+  /* ---------- RESIZE SUPPORT ---------- */
+  new ResizeObserver(() => {
+    panX = bounds().width / 2;
+    panY = bounds().height / 2;
+    updateView();
+  }).observe(container);
+
+  updateView();
+  tick();
+}
+
+/* ==========================================================
+   EXAMPLE DATA
+   ========================================================== */
+
+const nodes = [
+  { id: "Note A", url: "#A" },
+  { id: "Note B", url: "#B" },
+  { id: "Note C", url: "#C" },
+  { id: "Note D", url: "#D" },
+  { id: "Note E", url: "#E" }
+];
+
+const links = [
+  { a: "Note A", b: "Note B" },
+  { a: "Note A", b: "Note C" },
+  { a: "Note B", b: "Note D" },
+  { a: "Note C", b: "Note D" },
+  { a: "Note D", b: "Note E" }
+];
+
+createGraph(document.getElementById("graph"), nodes, links);
+</script>
