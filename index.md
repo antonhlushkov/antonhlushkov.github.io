@@ -10,11 +10,6 @@ Located in:
 
 IT professional with hands-on experience in IT support and information security within a critical healthcare infrastructure environment. Background in computer engineering with practical exposure to system administration, user support, and web application development. Actively seeking any IT or IT-related role where strong technical fundamentals, reliability, and willingness to learn are valued.
 
-## Link tree
-
-- [Bluesky](https://bsky.app/profile/hlu.bsky.social)
-- [X](https://x.com/antonhlushkov)
-
 ## Posts
 
 <ul class="posts">
