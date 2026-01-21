@@ -43,10 +43,47 @@
   dy: 4;
   pointer-events: none;
 }
+.map-fade-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.8) 80%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  z-index: 1000;
+}
+
+/* Top fade (upside down) */
+.map-fade-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.8) 80%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  transform: rotate(180deg);
+  z-index: 1000;
+}
 </style>
 
 <div class="nodes-container">
+      <div class="map-fade-overlay-top"></div>
   <div id="graph"></div>
+    <div class="map-fade-overlay-bottom"></div>
 </div>
 
 <script>
