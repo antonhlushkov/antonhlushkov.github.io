@@ -372,13 +372,12 @@ article {
   }
 }
 
-.posts li {
-  /* оставляем браузерные отступы как были */
+li{
+  list-style-type: circle;
 }
-
 .post-icon {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   margin-right: 6px;
 
   vertical-align: text-top; /* ← ВАЖНО */
