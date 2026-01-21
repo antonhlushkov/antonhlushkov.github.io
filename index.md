@@ -22,10 +22,9 @@ A person who tries to think critically in unpredictable situations. Experienced 
 
 <ul class="posts">
   {% for post in site.posts limit:10 %}
- <li class="posts" style="display: flex; align-items: center; gap: 8px;">
-  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"
-       xmlns="http://www.w3.org/2000/svg"
-       style="flex-shrink: 0;">
+<li class="posts">
+  <svg class="post-icon" viewBox="0 0 24 24" aria-hidden="true"
+       xmlns="http://www.w3.org/2000/svg">
     <g>
       <path d="M20.5,22H4c-0.2,0-0.3,0-0.5,0C1.6,22,0,20.4,0,18.5V6h5V2h19v16.5C24,20.4,22.4,22,20.5,22z M6.7,20h13.8
         c0.8,0,1.5-0.7,1.5-1.5V4H7v14.5C7,19,6.9,19.5,6.7,20z M2,8v10.5C2,19.3,2.7,20,3.5,20S5,19.3,5,18.5V8H2z"/>
@@ -36,12 +35,10 @@ A person who tries to think critically in unpredictable situations. Experienced 
     </g>
   </svg>
 
-  <div>
-    <strong>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </strong>
-    <span style="color: #666;"> — {{ post.date | date: "%B %d, %Y" }}</span>
-  </div>
+  <strong>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </strong>
+  <span style="color: #666;"> — {{ post.date | date: "%B %d, %Y" }}</span>
 </li>
   {% endfor %}
 </ul>
