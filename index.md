@@ -3,13 +3,15 @@ title: Home
 has_map: true
 ---
 
-IT Information Security Specialist with hands-on experience in IT support and information security within a critical healthcare infrastructure environment. Background in computer engineering with practical exposure to system administration, user support, and web application development. Actively seeking any IT or IT-related role where strong technical fundamentals, reliability, and willingness to learn are valued.
+IT Information Security Specialist with hands-on experience in IT support and information security within a critical healthcare infrastructure environment. Background in computer engineering with practical exposure to system administration, user support, and web application development.
 
 Key Skills:
 {% include nodes.html %}
 
 Located in:
 {% include map.html %}
+
+Actively seeking any IT or IT-related role where strong technical fundamentals, reliability, and willingness to learn are valued.
 
 ## Posts
 
