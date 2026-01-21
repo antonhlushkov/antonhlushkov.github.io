@@ -2,21 +2,13 @@
 title: Home
 has_map: true
 ---
-
+Key Skills:
 {% include nodes.html %}
 
-London, UK 🇬🇧
-
+Located in:
 {% include map.html %}
 
-A person who tries to think critically in unpredictable situations. Experienced IT Troubleshooter. IT Systems Manager.
-
-<!--
-{% include alert.html
-  type="note"
-  title="Note"
-  text="Available for hire. Based in London, UK." %}
--->
+IT professional with hands-on experience in IT support and information security within a critical healthcare infrastructure environment. Background in computer engineering with practical exposure to system administration, user support, and web application development. Actively seeking any IT or IT-related role where strong technical fundamentals, reliability, and willingness to learn are valued.
 
 ## Link tree
 
