@@ -62,7 +62,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 120px;
+      height: 100px;
       pointer-events: none;
       background: linear-gradient(
         to bottom,
@@ -79,7 +79,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 120px;
+      height: 100px;
       pointer-events: none;
       background: linear-gradient(
         to bottom,
@@ -95,8 +95,6 @@
       display: none;
     }
   </style>
-</head>
-<body>
   <div class="nodes-container">
     <div class="map-fade-overlay-top"></div>
     <div id="graph"></div>
@@ -108,9 +106,9 @@
     // ===== CONFIGURATION =====
     const CONFIG = {
       circleRadius: 6,
-      springLength: 120,
+      springLength: 320,
       springStrength: 0.015,
-      repulsion: 6000,
+      repulsion: 2000,
       damping: 0.82,
       circleFill: '#000000',
       textColor: '#000000',
@@ -164,6 +162,25 @@
         };
       });
 
+      // Helper function to wrap text
+      function wrapText(text, maxWidth = 30) {
+        const words = text.split(' ');
+        const lines = [];
+        let currentLine = '';
+
+        words.forEach(word => {
+          if ((currentLine + word).length > maxWidth) {
+            if (currentLine) lines.push(currentLine.trim());
+            currentLine = word;
+          } else {
+            currentLine += (currentLine ? ' ' : '') + word;
+          }
+        });
+
+        if (currentLine) lines.push(currentLine.trim());
+        return lines.length > 0 ? lines : [text];
+      }
+
       // Create nodes
       const nodeEls = nodes.map(n => {
         const g = document.createElementNS(svg.namespaceURI, "g");
@@ -175,7 +192,16 @@
 
         const text = document.createElementNS(svg.namespaceURI, "text");
         text.setAttribute("y", CIRCLE_RADIUS + 15);
-        text.textContent = n.id;
+
+        // Wrap text into multiple lines
+        const lines = wrapText(n.id, 12);
+        lines.forEach((line, index) => {
+          const tspan = document.createElementNS(svg.namespaceURI, "tspan");
+          tspan.setAttribute("x", "0");
+          tspan.setAttribute("dy", index === 0 ? "0" : "1.2em");
+          tspan.textContent = line;
+          text.appendChild(tspan);
+        });
 
         g.appendChild(circle);
         g.appendChild(text);
@@ -244,6 +270,9 @@
         requestAnimationFrame(tick);
       }
 
+      let frameCount = 0;
+      const COLLISION_CHECK_INTERVAL = 15; // Check collision every 15 frames
+
       function render() {
         // Update links
         for (const l of linkEls) {
@@ -256,6 +285,75 @@
         // Update nodes
         for (const o of nodeEls) {
           o.g.setAttribute("transform", `translate(${o.n.x}, ${o.n.y})`);
+        }
+
+        // Only run collision detection every N frames to prevent twitching
+        frameCount++;
+        if (frameCount % COLLISION_CHECK_INTERVAL === 0) {
+          // Prevent text overlap using smart positioning
+          const textData = nodeEls.map(o => {
+            const text = o.g.querySelector("text");
+            return {
+              text,
+              x: o.n.x,
+              y: o.n.y,
+              node: o
+            };
+          });
+
+          // Iteratively adjust text positions to avoid overlap
+          for (let iteration = 0; iteration < 2; iteration++) {
+            for (let i = 0; i < textData.length; i++) {
+              const current = textData[i];
+              let bestY = 21;
+              let bestX = 0;
+              let minOverlap = Infinity;
+
+              // Try different positions around the dot
+              const positions = [
+                { x: 0, y: 21 },    // Below
+                { x: 0, y: -21 },   // Above
+                { x: 25, y: 8 },    // Right-down
+                { x: -25, y: 8 },   // Left-down
+                { x: 25, y: -8 },   // Right-up
+                { x: -25, y: -8 },  // Left-up
+              ];
+
+              for (const pos of positions) {
+                let overlap = 0;
+
+                // Check overlap with all other texts
+                for (let j = 0; j < textData.length; j++) {
+                  if (i === j) continue;
+                  const other = textData[j];
+                  
+                  // Calculate distance between this position and other text
+                  const currentScreenX = current.x + pos.x;
+                  const currentScreenY = current.y + pos.y;
+                  const otherScreenX = other.x + (parseFloat(other.text.getAttribute("x")) || 0);
+                  const otherScreenY = other.y + (parseFloat(other.text.getAttribute("y")) || 0);
+
+                  const dx = currentScreenX - otherScreenX;
+                  const dy = currentScreenY - otherScreenY;
+                  const distance = Math.hypot(dx, dy);
+
+                  // Penalize positions too close to other text
+                  if (distance < 50) {
+                    overlap += (50 - distance);
+                  }
+                }
+
+                if (overlap < minOverlap) {
+                  minOverlap = overlap;
+                  bestY = pos.y;
+                  bestX = pos.x;
+                }
+              }
+
+              current.text.setAttribute("x", bestX);
+              current.text.setAttribute("y", bestY);
+            }
+          }
         }
       }
 
@@ -344,21 +442,76 @@
       tick();
     }
 
-    // Example data
+    // Skills data
     const nodes = [
-      { id: "Note A", url: "#A" },
-      { id: "Note B", url: "#B" },
-      { id: "Note C", url: "#C" },
-      { id: "Note D", url: "#D" },
-      { id: "Note E", url: "#E" }
+      { id: "Windows OS administration", url: "#windows-os" },
+      { id: "Hardware & peripheral support", url: "#hardware-support" },
+      { id: "User access management", url: "#user-access" },
+      { id: "Troubleshooting & incident resolution", url: "#troubleshooting" },
+      { id: "IT asset management", url: "#it-asset" },
+      { id: "Administration of medical information systems (MIS)", url: "#mis-admin" },
+      { id: "Basic database administration (user access, data integrity)", url: "#db-admin" },
+      { id: "Data entry validation and system support", url: "#data-validation" },
+      { id: "Working with sensitive medical data", url: "#sensitive-data" },
+      { id: "Information security controls", url: "#info-security" },
+      { id: "Access control policies", url: "#access-policies" },
+      { id: "Data protection practices", url: "#data-protection" },
+      { id: "Work within critical infrastructure environments", url: "#critical-infra" },
+      { id: "Compliance awareness", url: "#compliance" },
+      { id: "JavaScript (basic–intermediate)", url: "#javascript" },
+      { id: "Node.js, Express.js", url: "#nodejs-express" },
+      { id: "HTML, CSS", url: "#html-css" },
+      { id: "REST API basics", url: "#rest-api" },
+      { id: "Documentation & reporting", url: "#documentation" },
+      { id: "Time management (dual part-time roles)", url: "#time-management" },
+      { id: "Team collaboration", url: "#team-collaboration" },
+      { id: "Fast learner, adaptable", url: "#fast-learner" }
     ];
 
     const links = [
-      { a: "Note A", b: "Note B" },
-      { a: "Note A", b: "Note C" },
-      { a: "Note B", b: "Note D" },
-      { a: "Note C", b: "Note D" },
-      { a: "Note D", b: "Note E" }
+      // Core IT support connections
+      { a: "Windows OS administration", b: "Hardware & peripheral support" },
+      { a: "Windows OS administration", b: "Troubleshooting & incident resolution" },
+      { a: "Hardware & peripheral support", b: "Troubleshooting & incident resolution" },
+      { a: "Windows OS administration", b: "IT asset management" },
+      { a: "Hardware & peripheral support", b: "IT asset management" },
+
+      // User and access management
+      { a: "User access management", b: "Basic database administration (user access, data integrity)" },
+      { a: "User access management", b: "Access control policies" },
+      { a: "Access control policies", b: "Information security controls" },
+
+      // Medical and data handling
+      { a: "Administration of medical information systems (MIS)", b: "Working with sensitive medical data" },
+      { a: "Administration of medical information systems (MIS)", b: "Data entry validation and system support" },
+      { a: "Working with sensitive medical data", b: "Data protection practices" },
+      { a: "Data protection practices", b: "Information security controls" },
+      { a: "Basic database administration (user access, data integrity)", b: "Data entry validation and system support" },
+
+      // Infrastructure and compliance
+      { a: "Work within critical infrastructure environments", b: "Compliance awareness" },
+      { a: "Work within critical infrastructure environments", b: "Information security controls" },
+      { a: "Compliance awareness", b: "Data protection practices" },
+
+      // Programming and development
+      { a: "JavaScript (basic–intermediate)", b: "Node.js, Express.js" },
+      { a: "JavaScript (basic–intermediate)", b: "HTML, CSS" },
+      { a: "Node.js, Express.js", b: "REST API basics" },
+      { a: "HTML, CSS", b: "REST API basics" }, // Loose connection via web dev
+
+      // Soft skills connections to technical areas
+      { a: "Documentation & reporting", b: "Troubleshooting & incident resolution" },
+      { a: "Documentation & reporting", b: "Compliance awareness" },
+      { a: "Time management (dual part-time roles)", b: "Team collaboration" },
+      { a: "Team collaboration", b: "Fast learner, adaptable" },
+      { a: "Fast learner, adaptable", b: "JavaScript (basic–intermediate)" }, // Adaptability in learning tech
+      { a: "Fast learner, adaptable", b: "Troubleshooting & incident resolution" },
+
+      // Cross-links between categories
+      { a: "Administration of medical information systems (MIS)", b: "Windows OS administration" }, // OS admin in MIS
+      { a: "Basic database administration (user access, data integrity)", b: "Information security controls" },
+      { a: "IT asset management", b: "Work within critical infrastructure environments" },
+      { a: "REST API basics", b: "Basic database administration (user access, data integrity)" } // APIs often interact with DBs
     ];
 
     // Initialize graph
