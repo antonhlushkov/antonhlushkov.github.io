@@ -14,11 +14,14 @@
 
 // Computer Modern Serif
 @font-face {
-  font-family: "Computer Modern Serif";
-  src: url('/assets/fonts/Serif/cmunrm.woff') format('woff'),
-       url('/assets/fonts/Serif/cmunrm.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  	font-family: 'Computer Modern Serif';
+	src: url('/assets/fonts/Serif/cmunrm.eot');
+	src: url('/assets/fonts/Serif/cmunrm.eot?#iefix') format('embedded-opentype'),
+		 url('/assets/fonts/Serif/cmunrm.woff') format('woff'),
+		 url('/assets/fonts/Serif/cmunrm.ttf') format('truetype'),
+		 url('/assets/fonts/Serif/cmunrm.svg#cmunrm') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
