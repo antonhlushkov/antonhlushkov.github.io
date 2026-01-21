@@ -5,19 +5,252 @@
 // IMPORTS
 // =============================================================================
 
-@import url('https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@latest/fonts.css');
 @import "{{ site.theme }}";
 
 
 // =============================================================================
-// CSS VARIABLES
+// FONT DEFINITIONS - Computer Modern (All Variants)
 // =============================================================================
+
+// Computer Modern Serif
+@font-face {
+  font-family: "Computer Modern Serif";
+  src: url('/assets/fonts/Serif/cmunrm.woff') format('woff'),
+       url('/assets/fonts/Serif/cmunrm.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Serif";
+  src: url('/assets/fonts/Serif/cmunbx.woff') format('woff'),
+       url('/assets/fonts/Serif/cmunbx.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Serif";
+  src: url('/assets/fonts/Serif/cmunti.woff') format('woff'),
+       url('/assets/fonts/Serif/cmunti.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Computer Modern Serif";
+  src: url('/assets/fonts/Serif/cmunbi.woff') format('woff'),
+       url('/assets/fonts/Serif/cmunbi.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+// Computer Modern Serif Slanted
+@font-face {
+  font-family: "Computer Modern Serif Slanted";
+  src: url('/assets/fonts/Serif Slanted/cmunsl.woff') format('woff'),
+       url('/assets/fonts/Serif Slanted/cmunsl.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Serif Slanted";
+  src: url('/assets/fonts/Serif Slanted/cmunbl.woff') format('woff'),
+       url('/assets/fonts/Serif Slanted/cmunbl.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Computer Modern Serif Upright Italic
+@font-face {
+  font-family: "Computer Modern Serif Upright Italic";
+  src: url('/assets/fonts/Upright Italic/cmunui.woff') format('woff'),
+       url('/assets/fonts/Upright Italic/cmunui.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Computer Modern Classical Serif Italic
+@font-face {
+  font-family: "Computer Modern Classical Serif Italic";
+  src: url('/assets/fonts/Classical Serif Italic/cmunci.woff') format('woff'),
+       url('/assets/fonts/Classical Serif Italic/cmunci.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Computer Modern Concrete
+@font-face {
+  font-family: "Computer Modern Concrete";
+  src: url('/assets/fonts/Concrete/cmunorm.woff') format('woff'),
+       url('/assets/fonts/Concrete/cmunorm.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Concrete";
+  src: url('/assets/fonts/Concrete/cmunobi.woff') format('woff'),
+       url('/assets/fonts/Concrete/cmunobi.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+// Computer Modern Sans
+@font-face {
+  font-family: "Computer Modern Sans";
+  src: url('/assets/fonts/Sans/cmunss.woff') format('woff'),
+       url('/assets/fonts/Sans/cmunss.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Sans";
+  src: url('/assets/fonts/Sans/cmunsx.woff') format('woff'),
+       url('/assets/fonts/Sans/cmunsx.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Sans";
+  src: url('/assets/fonts/Sans/cmunsi.woff') format('woff'),
+       url('/assets/fonts/Sans/cmunsi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Computer Modern Sans Demi-Condensed
+@font-face {
+  font-family: "Computer Modern Sans Demi-Condensed";
+  src: url('/assets/fonts/Sans Demi-Condensed/cmunssdc.woff') format('woff'),
+       url('/assets/fonts/Sans Demi-Condensed/cmunssdc.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Computer Modern Bright
+@font-face {
+  font-family: "Computer Modern Bright";
+  src: url('/assets/fonts/Bright/cmunbmr.woff') format('woff'),
+       url('/assets/fonts/Bright/cmunbmr.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Bright";
+  src: url('/assets/fonts/Bright/cmunbmo.woff') format('woff'),
+       url('/assets/fonts/Bright/cmunbmo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Computer Modern Bright Semibold
+@font-face {
+  font-family: "Computer Modern Bright Semibold";
+  src: url('/assets/fonts/Bright Semibold/cmunbbx.woff') format('woff'),
+       url('/assets/fonts/Bright Semibold/cmunbbx.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Bright Semibold";
+  src: url('/assets/fonts/Bright Semibold/cmunbxo.woff') format('woff'),
+       url('/assets/fonts/Bright Semibold/cmunbxo.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+// Computer Modern Typewriter
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  src: url('/assets/fonts/Typewriter/cmuntt.woff') format('woff'),
+       url('/assets/fonts/Typewriter/cmuntt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  src: url('/assets/fonts/Typewriter/cmuntb.woff') format('woff'),
+       url('/assets/fonts/Typewriter/cmuntb.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Typewriter";
+  src: url('/assets/fonts/Typewriter/cmunit.woff') format('woff'),
+       url('/assets/fonts/Typewriter/cmunit.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Computer Modern Typewriter Variable
+@font-face {
+  font-family: "Computer Modern Typewriter Variable";
+  src: url('/assets/fonts/Typewriter Variable/cmunvt.woff') format('woff'),
+       url('/assets/fonts/Typewriter Variable/cmunvt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Typewriter Variable";
+  src: url('/assets/fonts/Typewriter Variable/cmunvtb.woff') format('woff'),
+       url('/assets/fonts/Typewriter Variable/cmunvtb.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Typewriter Variable";
+  src: url('/assets/fonts/Typewriter Variable/cmunvi.woff') format('woff'),
+       url('/assets/fonts/Typewriter Variable/cmunvi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Computer Modern Typewriter Light
+@font-face {
+  font-family: "Computer Modern Typewriter Light";
+  src: url('/assets/fonts/Typewriter Light/cmuntl.woff') format('woff'),
+       url('/assets/fonts/Typewriter Light/cmuntl.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Typewriter Light";
+  src: url('/assets/fonts/Typewriter Light/cmunbtl.woff') format('woff'),
+       url('/assets/fonts/Typewriter Light/cmunbtl.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Computer Modern Typewriter Light";
+  src: url('/assets/fonts/Typewriter Light/cmunitl.woff') format('woff'),
+       url('/assets/fonts/Typewriter Light/cmunitl.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+// Candara (local fallback)
 @font-face {
     font-family: 'Candara';
     src: local('Candara'), local('Candara Regular');
     font-weight: normal;
     font-style: normal;
 }
+
+// =============================================================================
+// CSS VARIABLES
+// =============================================================================
 
 :root {
   // Colors
@@ -29,7 +262,9 @@
   --color-footer-bg: #f6f8fa;
   
   // Typography
-  --font-serif: "Computer Modern Serif", "CMU Serif", Georgia, serif;
+  --font-serif: "Computer Modern Serif", Georgia, serif;
+  --font-sans: "Computer Modern Sans", sans-serif;
+  --font-mono: "Computer Modern Typewriter", "Courier New", monospace;
   --font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
                  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   --font-candara: 'Candara', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -63,6 +298,11 @@ a {
     color: var(--color-link-hover);
     text-decoration: underline;
   }
+}
+
+// Code blocks use Computer Modern Typewriter
+code, pre {
+  font-family: var(--font-mono);
 }
 
 
