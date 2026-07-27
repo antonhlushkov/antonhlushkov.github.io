@@ -8,14 +8,18 @@ description: >
   in _config.yml. It will appear in your document head meta (for Google search
   results) and in your feed.xml site description.
 
+remote_theme: "jekyll/minima@1e8a445"
 theme: minima
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
+  - jekyll-sitemap
 
 sass:
   quiet_deps: true
+
   silence_deprecations: [import]
 
 minima:
