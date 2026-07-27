@@ -3,19 +3,18 @@ description: >-
   Just another publicist website.
 baseurl: ""
 url: "https://antonhlushkov.github.io"
+
 theme: minima
+
 plugins:
   - jekyll-feed
-header_pages:
-  - index.md
+
 minima:
-  skin: solarized
+  skin: dark
   show_excerpts: true
-minima:
   social_links:
-    - title: Jekyll repository at GitHub
-      icon: github
-      url: "https://github.com/jekyll/jekyll"
-    - title: Jekyll at X (formerly Twitter)
-      icon: x-twitter
-      url: "https://x.com/jekyllrb"
+    - platform: linkedin
+      user_url: "https://linkedin.com/in/anton-hlushkov"
+    - platform: twitter
+      user_url: "https://x.com/antonhlushkov"
+      title: X (formerly Twitter)
