@@ -1,6 +1,7 @@
 title: Anton Hlushkov's Website
 author: 
   name: Anton Hlushkov
+  email: hlushkov.anton@gmail.com
 
 description: >
   Write an awesome description for your new site here. You can edit this line
@@ -53,11 +54,12 @@ minima:
   #     * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
   #     * url      Full URL of social profile.
   social_links:
-    - title: Minima Theme repository at GitHub
+    - title: Anton Hlushkov's GitHub
       icon: github
       url: "https://github.com/antonhlushkov"
-    - title: Jekyll at X (formerly Twitter)
+    - title: Anton Hlushkov's X (formerly Twitter)
       icon: x-twitter
       url: "https://x.com/antonhlushkov"
+    - title: Anton Hlushkov's LinkedIn
       icon: linkedin
       url: "https://linkedin.com/in/antonhlushkov"
