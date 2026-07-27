@@ -8,9 +8,9 @@ plugins:
   - jekyll-feed
 header_pages:
   - index.md
-custom_css:
-  - /assets/css/custom.css
 minima:
+  skin: auto
+  show_excerpts: true
   social_links:
     - title: LinkedIn
       icon: linkedin
