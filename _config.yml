@@ -7,6 +7,8 @@ description: Personal website of Anton Hlushkov.
 baseurl: ""
 url: "https://antonhlushkov.github.io"
 
+custom_css: /assets/css/style.css
+
 theme: minima
 
 plugins:
