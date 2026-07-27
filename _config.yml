@@ -6,3 +6,7 @@ url: "https://antonhlushkov.github.io"
 theme: minima
 plugins:
   - jekyll-feed
+header_pages:
+  - index.md
+custom_css:
+  - /assets/css/custom.css
