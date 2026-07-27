@@ -1,191 +1,66 @@
----
----
-@import "minima";
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap');
-
-/* ==========================================================================
-   Custom Minima override — dark mode support
-   Place this file at: assets/main.scss
-   The front-matter dashes above are required by Jekyll (do not remove).
-   ========================================================================== */
-
 :root {
-  --color-bg: #ffffff;
-  --color-text: #111111;
-  --color-text-muted: #4a4a4a;
-  --color-link: #2a7ae2;
-  --color-link-visited: #205ba0;
-  --color-border: #e8e8e8;
-  --color-code-bg: #f6f6f6;
-  --color-header-bg: #ffffff;
-  --color-footer-text: #828282;
-  --color-brand: #2a7ae2;
-
   color-scheme: light dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-text: #e6e6e6;
-    --color-text-muted: #a8a8a8;
-    --color-link: #6cb2ff;
-    --color-link-visited: #9a8cff;
-    --color-border: #2a2a2a;
-    --color-code-bg: #1e1e1e;
-    --color-header-bg: #181818;
-    --color-footer-text: #9a9a9a;
-    --color-brand: #6cb2ff;
-  }
-}
-
-/* Manual override via toggle (adds/removes .theme-dark or .theme-light on <html>) */
-html.theme-dark {
-  --color-bg: #121212;
-  --color-text: #e6e6e6;
-  --color-text-muted: #a8a8a8;
-  --color-link: #6cb2ff;
-  --color-link-visited: #9a8cff;
-  --color-border: #2a2a2a;
-  --color-code-bg: #1e1e1e;
-  --color-header-bg: #181818;
-  --color-footer-text: #9a9a9a;
-  --color-brand: #6cb2ff;
-}
-
-html.theme-light {
-  --color-bg: #ffffff;
-  --color-text: #111111;
-  --color-text-muted: #4a4a4a;
-  --color-link: #2a7ae2;
-  --color-link-visited: #205ba0;
-  --color-border: #e8e8e8;
-  --color-code-bg: #f6f6f6;
-  --color-header-bg: #ffffff;
-  --color-footer-text: #828282;
-  --color-brand: #2a7ae2;
-}
-
-/* ---- Base ---- */
-html {
-  background-color: var(--color-bg);
-}
-
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background: #f7f7f7;
+  color: #222;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-a {
-  color: var(--color-link);
-
-  &:visited {
-    color: var(--color-link-visited);
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111827;
+    color: #f3f4f6;
   }
 
-  &:hover {
-    color: var(--color-brand);
+  a {
+    color: #8ec5ff;
+  }
+
+  .site-header,
+  .site-footer {
+    background: #1f2937;
+    color: #f3f4f6;
+    border-color: #374151;
+  }
+
+  .site-title {
+    color: #f9fafb;
   }
 }
 
-/* ---- Site header ---- */
-.site-header {
-  background-color: var(--color-header-bg);
-  border-bottom: 1px solid var(--color-border);
+.site-title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
-.site-title,
-.site-title:visited {
-  color: var(--color-text);
-}
-
-.site-nav .page-link {
-  color: var(--color-text);
-}
-
-.site-nav .menu-icon svg path {
-  fill: var(--color-text);
-}
-
-/* ---- Footer ---- */
 .site-footer {
-  background-color: var(--color-header-bg);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-footer-text);
+  margin-top: 2rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid #e5e7eb;
 }
 
-.footer-heading {
-  color: var(--color-text);
+.footer-col-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
-.social-media-list a {
-  color: var(--color-footer-text);
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
-/* ---- Posts / pages ---- */
-.post-title,
-.post-content h1,
-.post-content h2,
-.post-content h3,
-.post-content h4 {
-  color: var(--color-text);
+.social-links a {
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.post-meta,
-.post-list-heading + .post-meta {
-  color: var(--color-text-muted);
-}
-
-.post-content {
-  color: var(--color-text);
-}
-
-blockquote {
-  color: var(--color-text-muted);
-  border-left: 4px solid var(--color-border);
-}
-
-/* ---- Code blocks ---- */
-pre,
-code {
-  background-color: var(--color-code-bg);
-  color: var(--color-text);
-}
-
-.highlight {
-  background-color: var(--color-code-bg);
-}
-
-/* ---- Tables ---- */
-table {
-  border: 1px solid var(--color-border);
-
-  th,
-  td {
-    border: 1px solid var(--color-border);
-  }
-
-  th {
-    background-color: var(--color-code-bg);
-  }
-}
-
-/* ---- Theme toggle button (optional, add the HTML snippet below) ---- */
-.theme-toggle {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.theme-toggle:hover {
-  border-color: var(--color-brand);
-}
-
-p {
-  font-family: "STIX Two Text", serif;
+.social-links a:hover {
+  text-decoration: underline;
 }

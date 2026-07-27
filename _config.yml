@@ -1,20 +1,12 @@
 title: Anton Hlushkov's Website
-author:
-  name: Anton Hlushkov
-
-description: Personal website of Anton Hlushkov.
-
+description: >-
+  Just another publicist website.
 baseurl: ""
 url: "https://antonhlushkov.github.io"
-
-custom_css: /assets/css/style.scss
-
 theme: minima
-
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
-
-
-
- 
+header_pages:
+  - index.md
+custom_css:
+  - /assets/css/custom.css
