@@ -1,66 +1,69 @@
 :root {
+  /* Material-inspired, WCAG-friendly palette */
   color-scheme: light dark;
-}
-
-body {
-  background: #f7f7f7;
-  color: #222;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  --md-primary: #006d77;
+  --md-on-primary: #ffffff;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e6edf3;
+  --link: #006d77;
+  --footer-bg: #f1f5f9;
+  --footer-text: #475569;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #111827;
-    color: #f3f4f6;
-  }
-
-  a {
-    color: #8ec5ff;
-  }
-
-  .site-header,
-  .site-footer {
-    background: #1f2937;
-    color: #f3f4f6;
-    border-color: #374151;
-  }
-
-  .site-title {
-    color: #f9fafb;
+  :root {
+    --bg: #0b1220;
+    --surface: #0f1724;
+    --text: #e6eef6;
+    --muted: #94a3b8;
+    --border: #1f2937;
+    --link: #60a5fa;
+    --footer-bg: #0b1220;
+    --footer-text: #9aa6b2;
   }
 }
 
-.site-title {
-  font-weight: 600;
-  letter-spacing: 0.01em;
+/* Base */
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
+a { color: var(--link); }
+
+/* Site title */
+.site-title { font-weight: 700; letter-spacing: 0.01em; color: var(--text); }
+
+/* Header / Footer */
+.site-header,
 .site-footer {
-  margin-top: 2rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid #e5e7eb;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  border-top: 1px solid var(--border);
 }
+
+.site-footer { margin-top: 2.25rem; padding: 1.25rem 0; }
 
 .footer-col-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  max-width: 980px; margin: 0 auto; padding: 0 1rem;
 }
 
-.social-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
+.footer-col .p-name { margin: 0; color: var(--muted); }
+
+.social-links { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
 
 .social-links a {
-  text-decoration: none;
-  font-weight: 500;
+  text-decoration: none; font-weight: 600; color: var(--link);
+  padding: 0.25rem 0.35rem; border-radius: 6px; transition: background-color 0.12s ease;
 }
 
-.social-links a:hover {
-  text-decoration: underline;
+.social-links a:hover { background: rgba(0,0,0,0.04); }
+
+@media (prefers-color-scheme: dark) {
+  .social-links a:hover { background: rgba(255,255,255,0.04); }
 }
