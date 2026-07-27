@@ -1,7 +1,6 @@
-title: My Blog
-email: your-email@example.com
+title: Anton Hlushkov's Website
 description: >-
-  A simple Jekyll blog starter for GitHub Pages.
+  Just another publicist website.
 baseurl: ""
 url: "https://antonhlushkov.github.io"
 theme: minima
