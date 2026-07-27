@@ -1,12 +1,10 @@
 title: Anton Hlushkov's Website
 author: 
   name: Anton Hlushkov
-  email: hlushkov.anton@gmail.com
 
 description: >
-  Write an awesome description for your new site here. You can edit this line
-  in _config.yml. It will appear in your document head meta (for Google search
-  results) and in your feed.xml site description.
+  Personal website of Anton Hlushkov a technocrat.
+  Explore my content and connect with me on social media.
 
 remote_theme: "jekyll/minima@1e8a445"
 

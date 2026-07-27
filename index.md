@@ -1,6 +1,4 @@
 ---
-layout: home
 title: Home
+layout: home
 ---
-
-Welcome to my blog. Here you can find more about me.
