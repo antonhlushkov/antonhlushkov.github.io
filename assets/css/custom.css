@@ -108,7 +108,6 @@
   }
 
   .site-title {
-    font-weight: 900;
     font-size: clamp(1rem, 5vw, 1.6rem);
     white-space: nowrap;
     overflow: hidden;
@@ -116,10 +115,12 @@
     text-decoration: none;
     min-width: 0;
     flex: 1 1 auto;
+    font-family: "STIX Two Text", serif;
   }
 
   .site-nav {
     flex: 0 0 auto;
+    font-family: "STIX Two Text", serif;
   }
   .site-nav .page-link {
     color: var(--color-text);
