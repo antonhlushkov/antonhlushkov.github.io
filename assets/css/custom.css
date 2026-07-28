@@ -309,3 +309,11 @@ p {
 .social-links li a svg {
   flex-shrink: 0;
 }
+
+.post-meta{
+  text-align:center;
+}
+
+.post-title{
+text-align: center;
+}
