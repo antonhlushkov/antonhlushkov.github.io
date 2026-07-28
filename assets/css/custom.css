@@ -121,6 +121,7 @@
   .site-nav {
     flex: 0 0 auto;
     font-family: "STIX Two Text", serif;
+    
   }
   .site-nav .page-link {
     color: var(--color-text);
@@ -152,6 +153,7 @@
   .post-content h3,
   .post-content h4 {
     color: var(--color-text);
+    font-family: "STIX Two Text", serif;
   }
 
   .post-meta,
