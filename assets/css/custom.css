@@ -114,14 +114,13 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: none;
-  min-width: 0;      /* lets flex actually shrink this item instead of overflowing */
-  flex-shrink: 1;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .site-nav {
-  flex-shrink: 0;    /* nav/hamburger keeps its size, title yields space to it */
+  flex: 0 0 auto;
 }
-
 .site-nav .page-link {
   color: var(--color-text);
 }
