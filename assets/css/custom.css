@@ -76,6 +76,11 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
+  /* ---- Typography: global font ---- */
+  html, body, input, textarea, select, button {
+    font-family: "STIX Two Text", serif;
+  }
+
   a {
     color: var(--color-link);
 
@@ -115,12 +120,11 @@
     text-decoration: none;
     min-width: 0;
     flex: 1 1 auto;
-    font-family: "STIX Two Text", serif;
+    
   }
 
   .site-nav {
     flex: 0 0 auto;
-    font-family: "STIX Two Text", serif;
     
   }
   .site-nav .page-link {
@@ -155,7 +159,7 @@
   .post-content h5,
   .post-content h6 {
     color: var(--color-text);
-    font-family: "STIX Two Text", serif;
+    
   }
 
   .post-meta,
@@ -213,9 +217,7 @@
   }
 
 
-  p {
-    font-family: "STIX Two Text", serif;
-  }
+  /* paragraphs inherit the global font */
 
   /* ---- Mobile nav (site-nav itself carries the background/border) ---- */
   @media screen and (max-width: 600px) {
