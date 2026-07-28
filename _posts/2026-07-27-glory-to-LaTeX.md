@@ -3,12 +3,236 @@ layout: post
 title: Glory To LaTeX
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis vitae tellus tincidunt dictum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse lacus purus, venenatis in metus viverra, condimentum sagittis elit. Morbi dolor ante, porttitor sagittis vehicula eu, sollicitudin et eros. Sed dapibus purus ac semper mollis. Fusce porta nisl sit amet urna finibus, et tincidunt urna elementum. Sed diam erat, volutpat id rutrum id, faucibus et erat.
+# h1 Heading 8-)
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
 
-Praesent nulla nisl, aliquet sed placerat eu, vehicula ut quam. Phasellus convallis justo nibh, eget lacinia erat egestas quis. Nam ac accumsan libero. Integer aliquam vitae sapien ut luctus. Proin tristique lacus massa, ac hendrerit nulla ullamcorper nec. Nam vitae nisl eu mi mattis ullamcorper vitae in quam. Duis posuere, tellus ac lobortis ornare, lorem sapien pulvinar velit, in efficitur massa enim a est. Praesent mattis ac justo at ultricies. Sed felis mauris, rhoncus ut elementum nec, rhoncus quis mauris. Ut non tincidunt tellus. Donec eu tortor libero. Mauris sit amet convallis sem. Vivamus urna nisl, varius a dolor ac, bibendum luctus dui. Maecenas lacus nulla, sollicitudin sed felis a, tincidunt porta orci.
 
-Sed maximus tortor purus, quis sollicitudin metus scelerisque ac. Vestibulum mollis ultrices nibh, vel faucibus diam efficitur at. Curabitur vitae urna ut lacus convallis accumsan. In tristique quam sit amet ipsum blandit, nec gravida eros lobortis. In facilisis est at lacus posuere, non fringilla ex maximus. Nulla in lectus ut elit maximus tempor eget eget libero. Fusce auctor id elit eget rutrum. Etiam egestas turpis nec urna placerat convallis. Phasellus non eleifend metus. Pellentesque euismod nisl lectus, in auctor augue pharetra finibus. Maecenas dignissim dictum turpis sed auctor.
+## Horizontal Rules
 
-Suspendisse potenti. Donec convallis ornare metus ac consequat. Donec ornare lacinia augue sed congue. In cursus, purus at accumsan pretium, erat lectus faucibus est, vel ullamcorper magna nunc sed felis. Vestibulum luctus turpis eu mauris dictum volutpat. Maecenas dui felis, gravida at enim eu, commodo facilisis diam. Nunc vel sollicitudin elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed suscipit quam nulla, eget suscipit diam egestas et.
+___
 
-Donec augue odio, pharetra nec laoreet sed, ultricies in eros. Morbi dolor urna, aliquet at rutrum sed, ullamcorper nec quam. Donec faucibus interdum dui, a maximus mauris gravida nec. Proin ullamcorper dui in elit lacinia venenatis. Nullam sed elit nec metus porta cursus pellentesque non lectus. In sit amet arcu eget nunc iaculis placerat. Vestibulum mattis, leo quis ultrices malesuada, dui nisl sollicitudin purus, a finibus ante nisl at nulla. Nam eu dui et enim dictum interdum ut id nunc. Vestibulum id diam fermentum, vestibulum felis et, ultricies erat. Vivamus vitae ultrices leo. Nulla dolor purus, volutpat quis posuere quis, dignissim sed est. Phasellus malesuada pulvinar venenatis.
+---
+
+***
+
+
+## Typographic replacements
+
+Enable typographer option to see result.
+
+(c) (C) (r) (R) (tm) (TM) +-
+
+test.. test... test..... test?..... test!....
+
+!!!!!! ???? ,,  -- ---
+
+"Smartypants, double quotes" and 'single quotes'
+
+
+## Emphasis
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Strikethrough~~
+
+
+## Blockquotes
+
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+
+## Lists
+
+Unordered
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+``` js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+Right aligned columns
+
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+
+
+## Plugins
+
+The killer feature of `markdown-it` is very effective support of
+[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+
+
+### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+
+> Classic markup: :wink: :cry: :laughing: :yum:
+>
+> Shortcuts (emoticons): :-) :-( 8-) ;)
+
+see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+
+
+### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+
+- 19^th^
+- H~2~O
+
+
+### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+
+++Inserted text++
+
+
+### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+
+==Marked text==
+
+
+### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+
+### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+
+Term 1
+
+:   Definition 1
+with lazy continuation.
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+
+### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+*[HTML]: Hyper Text Markup Language
+
+### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+
+::: warning
+*here be dragons*
+:::
