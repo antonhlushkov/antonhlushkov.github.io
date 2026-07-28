@@ -1,30 +1,45 @@
----
----
-@import "minima";
+  ---
+  ---
+  @import "minima";
 
-/* ==========================================================================
-   Custom Minima override — dark mode support
-   Place this file at: assets/main.scss
-   The front-matter dashes above are required by Jekyll (do not remove).
-   ========================================================================== */
+  /* ==========================================================================
+    Custom Minima override — dark mode support
+    Place this file at: assets/main.scss
+    The front-matter dashes above are required by Jekyll (do not remove).
+    ========================================================================== */
 
-:root {
-  --color-bg: #ffffff;
-  --color-text: #111111;
-  --color-text-muted: #4a4a4a;
-  --color-link: #2a7ae2;
-  --color-link-visited: #205ba0;
-  --color-border: #e8e8e8;
-  --color-code-bg: #f6f6f6;
-  --color-header-bg: #ffffff;
-  --color-footer-text: #828282;
-  --color-brand: #2a7ae2;
-
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
   :root {
+    --color-bg: #ffffff;
+    --color-text: #111111;
+    --color-text-muted: #4a4a4a;
+    --color-link: #2a7ae2;
+    --color-link-visited: #205ba0;
+    --color-border: #e8e8e8;
+    --color-code-bg: #f6f6f6;
+    --color-header-bg: #ffffff;
+    --color-footer-text: #828282;
+    --color-brand: #2a7ae2;
+
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #121212;
+      --color-text: #e6e6e6;
+      --color-text-muted: #a8a8a8;
+      --color-link: #6cb2ff;
+      --color-link-visited: #9a8cff;
+      --color-border: #2a2a2a;
+      --color-code-bg: #1e1e1e;
+      --color-header-bg: #181818;
+      --color-footer-text: #9a9a9a;
+      --color-brand: #6cb2ff;
+    }
+  }
+
+  /* Manual override via toggle (adds/removes .theme-dark or .theme-light on <html>) */
+  html.theme-dark {
     --color-bg: #121212;
     --color-text: #e6e6e6;
     --color-text-muted: #a8a8a8;
@@ -36,284 +51,337 @@
     --color-footer-text: #9a9a9a;
     --color-brand: #6cb2ff;
   }
-}
 
-/* Manual override via toggle (adds/removes .theme-dark or .theme-light on <html>) */
-html.theme-dark {
-  --color-bg: #121212;
-  --color-text: #e6e6e6;
-  --color-text-muted: #a8a8a8;
-  --color-link: #6cb2ff;
-  --color-link-visited: #9a8cff;
-  --color-border: #2a2a2a;
-  --color-code-bg: #1e1e1e;
-  --color-header-bg: #181818;
-  --color-footer-text: #9a9a9a;
-  --color-brand: #6cb2ff;
-}
-
-html.theme-light {
-  --color-bg: #ffffff;
-  --color-text: #111111;
-  --color-text-muted: #4a4a4a;
-  --color-link: #2a7ae2;
-  --color-link-visited: #205ba0;
-  --color-border: #e8e8e8;
-  --color-code-bg: #f6f6f6;
-  --color-header-bg: #ffffff;
-  --color-footer-text: #828282;
-  --color-brand: #2a7ae2;
-}
-
-/* ---- Base ---- */
-html {
-  background-color: var(--color-bg);
-}
-
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-a {
-  color: var(--color-link);
-
-  &:visited {
-    color: var(--color-link-visited);
+  html.theme-light {
+    --color-bg: #ffffff;
+    --color-text: #111111;
+    --color-text-muted: #4a4a4a;
+    --color-link: #2a7ae2;
+    --color-link-visited: #205ba0;
+    --color-border: #e8e8e8;
+    --color-code-bg: #f6f6f6;
+    --color-header-bg: #ffffff;
+    --color-footer-text: #828282;
+    --color-brand: #2a7ae2;
   }
 
-  &:hover {
-    color: var(--color-brand);
-  }
-}
-
-/* ---- Site header ---- */
-.site-header {
- border-bottom: none;
- border-top: none;
-}
-
-.site-title,
-.site-title:visited {
-  color: var(--color-text);
-}
-
-.site-header .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  flex-wrap: nowrap;
-}
-
-.site-title {
-  font-weight: 900;
-  font-size: clamp(1rem, 5vw, 1.6rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-decoration: none;
-  min-width: 0;
-  flex: 1 1 auto;
-}
-
-.site-nav {
-  flex: 0 0 auto;
-}
-.site-nav .page-link {
-  color: var(--color-text);
-}
-
-.site-nav .menu-icon svg path {
-  fill: var(--color-text);
-}
-
-/* ---- Footer ---- */
-.site-footer {
-  background-color: var(--color-header-bg);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-footer-text);
-}
-
-.footer-heading {
-  color: var(--color-text);
-}
-
-.social-media-list a {
-  color: var(--color-footer-text);
-}
-
-/* ---- Posts / pages ---- */
-.post-title,
-.post-content h1,
-.post-content h2,
-.post-content h3,
-.post-content h4 {
-  color: var(--color-text);
-}
-
-.post-meta,
-.post-list-heading + .post-meta {
-  color: var(--color-text-muted);
-}
-
-.post-content {
-  color: var(--color-text);
-}
-
-blockquote {
-  color: var(--color-text-muted);
-  border-left: 4px solid var(--color-border);
-}
-
-/* ---- Code blocks ---- */
-pre,
-code {
-  background-color: var(--color-code-bg);
-  color: var(--color-text);
-}
-
-.highlight {
-  background-color: var(--color-code-bg);
-}
-
-/* ---- Tables ---- */
-table {
-  border: 1px solid var(--color-border);
-
-  th,
-  td {
-    border: 1px solid var(--color-border);
+  /* ---- Base ---- */
+  html {
+    background-color: var(--color-bg);
   }
 
-  th {
-    background-color: var(--color-code-bg);
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
-}
 
-/* ---- Theme toggle button (optional, add the HTML snippet below) ---- */
-.theme-toggle {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
+  a {
+    color: var(--color-link);
 
-.theme-toggle:hover {
-  border-color: var(--color-brand);
-}
+    &:visited {
+      color: var(--color-link-visited);
+    }
 
+    &:hover {
+      color: var(--color-brand);
+    }
+  }
 
-p {
-  font-family: "STIX Two Text", serif;
-}
+  /* ---- Site header ---- */
+  .site-header {
+  border-bottom: none;
+  border-top: none;
+  }
 
-/* ---- Mobile nav (site-nav itself carries the background/border) ---- */
-@media screen and (max-width: 600px) {
+  .site-title,
+  .site-title:visited {
+    color: var(--color-text);
+  }
+
+  .site-header .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+  }
+
+  .site-title {
+    font-weight: 900;
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
   .site-nav {
-    background-color: var(--color-header-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 5px;
+    flex: 0 0 auto;
   }
-
-  .site-nav .trigger {
-    background-color: var(--color-header-bg);
-  }
-
   .site-nav .page-link {
     color: var(--color-text);
   }
-}
 
-.site-nav .menu-icon svg path {
-  fill: var(--color-text);
-}
+  .site-nav .menu-icon svg path {
+    fill: var(--color-text);
+  }
+
+  /* ---- Footer ---- */
+  .site-footer {
+    background-color: var(--color-header-bg);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-footer-text);
+  }
+
+  .footer-heading {
+    color: var(--color-text);
+  }
+
+  .social-media-list a {
+    color: var(--color-footer-text);
+  }
+
+  /* ---- Posts / pages ---- */
+  .post-title,
+  .post-content h1,
+  .post-content h2,
+  .post-content h3,
+  .post-content h4 {
+    color: var(--color-text);
+  }
+
+  .post-meta,
+  .post-list-heading + .post-meta {
+    color: var(--color-text-muted);
+  }
+
+  .post-content {
+    color: var(--color-text);
+  }
+
+  blockquote {
+    color: var(--color-text-muted);
+    border-left: 4px solid var(--color-border);
+  }
+
+  /* ---- Code blocks ---- */
+  pre,
+  code {
+    background-color: var(--color-code-bg);
+    color: var(--color-text);
+  }
+
+  .highlight {
+    background-color: var(--color-code-bg);
+  }
+
+  /* ---- Tables ---- */
+  table {
+    border: 1px solid var(--color-border);
+
+    th,
+    td {
+      border: 1px solid var(--color-border);
+    }
+
+    th {
+      background-color: var(--color-code-bg);
+    }
+  }
+
+  /* ---- Theme toggle button (optional, add the HTML snippet below) ---- */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--color-brand);
+  }
 
 
-/* ---- Footer (compact, theme-aware) ---- */
-.site-footer {
-  background-color: var(--color-header-bg);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-footer-text);
-  padding: 1.5rem 0;
-  font-size: 0.85rem;
-}
+  p {
+    font-family: "STIX Two Text", serif;
+  }
 
-.site-footer .wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+  /* ---- Mobile nav (site-nav itself carries the background/border) ---- */
+  @media screen and (max-width: 600px) {
+    .site-nav {
+      background-color: var(--color-header-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 5px;
+    }
 
-.footer-col-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-left:0;
-}
+    .site-nav .trigger {
+      background-color: var(--color-header-bg);
+    }
 
-.footer-col .p-name {
-  font-weight: 600;
-  margin: 0;
-  color: var(--color-text);
-}
+    .site-nav .page-link {
+      color: var(--color-text);
+    }
+  }
 
-.footer-license {
-  margin: 0.15rem 0 0;
-  font-size: 0.78rem;
-  color: var(--color-footer-text);
-}
+  .site-nav .menu-icon svg path {
+    fill: var(--color-text);
+  }
 
-.footer-license a {
-  color: var(--color-footer-text);
-  text-decoration: underline;
-}
 
-.footer-license a:hover {
-  color: var(--color-brand);
-}
+  /* ---- Footer (compact, theme-aware) ---- */
+  .site-footer {
+    background-color: var(--color-header-bg);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-footer-text);
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+  }
 
-.social-links {
-  display: flex;
-  gap: 0.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+  .site-footer .wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
 
-.social-links li a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
-  border-radius: 0;
+  .footer-col-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-left:0;
+  }
+
+  .footer-col .p-name {
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .footer-license {
+    margin: 0.15rem 0 0;
+    font-size: 0.78rem;
+    color: var(--color-footer-text);
+  }
+
+  .footer-license a {
+    color: var(--color-footer-text);
+    text-decoration: underline;
+  }
+
+  .footer-license a:hover {
+    color: var(--color-brand);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .social-links li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 0;
+    border: 1px solid var(--color-border);
+    color: var(--color-footer-text);
+    text-decoration: none;
+    font-size: 0.78rem;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .social-links li a:hover {
+    color: var(--color-text);
+    border-color: var(--color-brand);
+    background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+  }
+
+  .social-links li a svg {
+    flex-shrink: 0;
+  }
+
+  .post-meta{
+    text-align:center;
+  }
+
+  .post-title{
+  text-align: center;
+  }
+
+  /* ---- Tables — fix striping ---- */
+table {
   border: 1px solid var(--color-border);
-  color: var(--color-footer-text);
-  text-decoration: none;
-  font-size: 0.78rem;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.social-links li a:hover {
+table tr {
+  background-color: var(--color-bg);
+}
+
+table tr:nth-child(even) {
+  background-color: var(--color-code-bg);
+}
+
+table th,
+table td {
+  border: 1px solid var(--color-border);
   color: var(--color-text);
-  border-color: var(--color-brand);
-  background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+  padding: 0.5rem 0.75rem;
 }
 
-.social-links li a svg {
-  flex-shrink: 0;
+table th {
+  background-color: var(--color-code-bg);
+  color: var(--color-text);
 }
 
-.post-meta{
-  text-align:center;
+/* ---- Code blocks — override Rouge's hardcoded light theme ---- */
+pre,
+code,
+.highlight,
+.highlight pre,
+.highlighter-rouge .highlight {
+  background-color: var(--color-code-bg) !important;
+  color: var(--color-text) !important;
 }
 
-.post-title{
-text-align: center;
+/* Rouge wraps every token in its own <span class="k">, <span class="s">, etc.
+   with hardcoded colors — force them to inherit instead of using their own palette */
+.highlight .c, .highlight .err, .highlight .k, .highlight .o, .highlight .cm,
+.highlight .cp, .highlight .c1, .highlight .cs, .highlight .gd, .highlight .ge,
+.highlight .gr, .highlight .gh, .highlight .gi, .highlight .go, .highlight .gp,
+.highlight .gs, .highlight .gu, .highlight .gt, .highlight .kc, .highlight .kd,
+.highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt, .highlight .m,
+.highlight .s, .highlight .n, .highlight .na, .highlight .nb, .highlight .nc,
+.highlight .no, .highlight .ni, .highlight .ne, .highlight .nf, .highlight .nn,
+.highlight .nt, .highlight .nv, .highlight .ow, .highlight .w, .highlight .mf,
+.highlight .mh, .highlight .mi, .highlight .mo, .highlight .sb, .highlight .sc,
+.highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si,
+.highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss, .highlight .bp,
+.highlight .vc, .highlight .vg, .highlight .vi, .highlight .il {
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+}
+
+/* Inline code (backticks) */
+code {
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid var(--color-border);
+}
+
+/* Code inside a pre shouldn't get the inline-code border/padding */
+pre code {
+  padding: 0;
+  border: none;
 }
