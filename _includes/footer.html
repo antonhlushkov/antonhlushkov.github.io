@@ -5,13 +5,19 @@
     <div class="footer-col-wrapper">
       <div class="footer-col">
         <p class="p-name">{{ site.title | escape }}</p>
+        <p class="footer-license">
+          © {{ site.time | date: "%Y" }} Anton Hlushkov ·
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer license">
+            CC BY 4.0
+          </a>
+        </p>
       </div>
 
       <div class="footer-col">
         <ul class="social-links">
           <li>
             <a href="https://linkedin.com/in/anton-hlushkov" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
                 <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.44-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/>
               </svg>
               <span>LinkedIn</span>
@@ -19,7 +25,7 @@
           </li>
           <li>
             <a href="https://x.com/antonhlushkov" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
                 <path d="M13.98 10.62 20.28 3h-1.5l-5.47 6.62L8.86 3H3.2l6.62 9.6L3.2 21h1.5l5.79-7.02L15.14 21h5.66l-6.82-10.38zm-2.05 2.48-.67-.97L5.6 4.15h2.3l4.3 6.2.67.96 5.99 8.65h-2.3l-4.63-6.68z"/>
               </svg>
               <span>X</span>
@@ -30,63 +36,3 @@
     </div>
   </div>
 </footer>
-
-<style>
-.site-footer {
-  border-top: 1px solid var(--border-color, #e8e8e8);
-  padding: 2.5rem 0;
-  margin-top: 3rem;
-}
-
-.site-footer .wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.footer-col-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer-col .p-name {
-  font-weight: 600;
-  margin: 0;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-.social-links {
-  display: flex;
-  gap: 0.75rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.social-links li a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-color, #e0e0e0);
-  color: inherit;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-}
-
-.social-links li a:hover {
-  background: var(--hover-bg, rgba(0,0,0,0.05));
-  border-color: var(--hover-border, rgba(0,0,0,0.15));
-  transform: translateY(-1px);
-}
-
-.social-links li a svg {
-  flex-shrink: 0;
-}
-</style>

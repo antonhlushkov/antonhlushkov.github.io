@@ -211,3 +211,79 @@ p {
 .site-nav .menu-icon svg path {
   fill: var(--color-text);
 }
+
+
+/* ---- Footer (compact, theme-aware) ---- */
+.site-footer {
+  background-color: var(--color-header-bg);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-footer-text);
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+}
+
+.site-footer .wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-col-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-col .p-name {
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.footer-license {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: var(--color-footer-text);
+}
+
+.footer-license a {
+  color: var(--color-footer-text);
+  text-decoration: underline;
+}
+
+.footer-license a:hover {
+  color: var(--color-brand);
+}
+
+.social-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-footer-text);
+  text-decoration: none;
+  font-size: 0.78rem;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.social-links li a:hover {
+  color: var(--color-text);
+  border-color: var(--color-brand);
+  background: color-mix(in srgb, var(--color-brand) 12%, transparent);
+}
+
+.social-links li a svg {
+  flex-shrink: 0;
+}
