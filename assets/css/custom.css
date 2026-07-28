@@ -107,7 +107,13 @@ a {
   text-overflow: ellipsis;
   max-width: calc(100% - 3.5rem); /* leaves room for the hamburger icon */
 }
-
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
 .site-nav .page-link {
   color: var(--color-text);
 }
