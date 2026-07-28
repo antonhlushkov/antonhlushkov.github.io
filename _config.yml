@@ -1,12 +1,11 @@
 title: Anton Hlushkov's Website
-description: >-
-  Just another publicist website.
+description: Just another publicist website.
 baseurl: ""
 url: "https://antonhlushkov.github.io"
 theme: minima
 plugins:
   - jekyll-feed
-header_pages:
-  - index.md
+nav_pages:
+  - about.md
 custom_css:
   - /assets/css/custom.css
