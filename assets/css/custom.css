@@ -99,8 +99,13 @@ a {
   color: var(--color-text);
 }
 
-.site-title{
+.site-title {
   font-weight: 900;
+  font-size: clamp(1rem, 5vw, 1.6rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 3.5rem); /* leaves room for the hamburger icon */
 }
 
 .site-nav .page-link {
