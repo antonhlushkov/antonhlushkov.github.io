@@ -255,6 +255,7 @@ p {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin-left:0;
 }
 
 .footer-col .p-name {
