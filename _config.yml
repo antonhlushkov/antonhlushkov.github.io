@@ -7,5 +7,5 @@ plugins:
   - jekyll-feed
 nav_pages:
   - about.md
-custom_css:
-  - /assets/css/custom.css
+sass:
+  style: compressed
