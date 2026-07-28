@@ -2,4 +2,4 @@
 layout: post
 ---
 
-This is my first post.
+$ 2^{\frac{n-1}{3}} $
