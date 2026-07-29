@@ -1,5 +1,6 @@
 title: Anton Hlushkov's Website
 description: Just another publicist website.
+author: Anton Hlushkov
 baseurl: ""
 url: "https://antonhlushkov.github.io"
 theme: minima
