@@ -13,28 +13,52 @@ title: Categories
   </ul>
 </nav>
 
-<section class="posts-archive">
-  {%- for post in site.posts -%}
-    <article class="archive-post" data-tags="{%- for t in post.tags -%}{{ t | slugify }} {% endfor -%}" data-categories="{%- for c in post.categories -%}{{ c | slugify }} {% endfor -%}">
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
-      <p class="meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-    </article>
-  {%- endfor -%}
+<section id="filtered-posts" class="filtered-posts">
+  <!-- Posts matching the selected category will be rendered here by JS -->
 </section>
 
 <script>
+// POSTS data generated at build time; used to render filtered lists client-side
+var POSTS = [
+  {%- for post in site.posts -%}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "date": {{ post.date | date: "%b %-d, %Y" | jsonify }},
+    "tags": {{ post.tags | jsonify }},
+    "categories": {{ post.categories | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+];
+
 (function(){
   const params = new URLSearchParams(window.location.search);
   const category = params.get('category');
-  if (!category) return;
-  const posts = document.querySelectorAll('.archive-post');
-  posts.forEach(p => {
-    const cats = p.getAttribute('data-categories') || '';
-    if (cats.split(/\s+/).includes(category)) {
-      p.style.display = '';
-    } else {
-      p.style.display = 'none';
-    }
+  const container = document.getElementById('filtered-posts');
+  if (!container) return;
+  container.innerHTML = '';
+  if (!category) {
+    container.innerHTML = '<p class="notice">Select a category to view posts.</p>';
+    return;
+  }
+  const matched = POSTS.filter(p => (p.categories || []).map(c => slugify(c)).includes(category));
+  if (!matched.length) {
+    container.innerHTML = '<p class="notice">No posts found for this category.</p>';
+    return;
+  }
+  matched.forEach(p => {
+    const article = document.createElement('article');
+    article.className = 'archive-post';
+    article.innerHTML = '<h2><a href="' + p.url + '">' + escapeHtml(p.title) + '</a></h2>' +
+                        '<p class="meta">' + p.date + '</p>';
+    container.appendChild(article);
   });
+
+  function slugify(s){
+    return String(s).toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  }
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"]/g, function (s) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[s]; });
+  }
 })();
 </script>

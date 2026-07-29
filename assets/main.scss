@@ -273,3 +273,22 @@ pre code {
     transition-duration: .01ms !important;
   }
 }
+
+/* Tags & Categories styling */
+.post-taxonomy { margin-top: 0.5rem; font-size: 0.95rem; }
+.post-taxonomy .post-categories, .post-taxonomy .post-tags { display: inline-block; margin-right: 1rem; }
+.post-taxonomy a.tag, .post-taxonomy a.category { text-decoration: none; color: var(--color-link); }
+.post-taxonomy a.tag:hover, .post-taxonomy a.category:hover { text-decoration: underline; }
+
+/* Tags/categories index pages */
+.tags-list, .categories-list { margin-bottom: 1rem; }
+.tags-list ul, .categories-list ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tags-list li, .categories-list li { background: transparent; padding: 0.25rem 0.5rem; border-radius: 4px; }
+.filtered-posts { margin-top: 1rem; }
+.filtered-posts .archive-post { padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); }
+.notice { color: var(--color-text-muted); font-style: italic; }
+
+/* Heading anchor links inside posts */
+.post-content .heading-anchor { margin-left: 0.5rem; text-decoration: none; color: var(--color-text-muted); font-size: 0.85rem; }
+.post-content h2:hover .heading-anchor,
+.post-content h3:hover .heading-anchor { color: var(--color-link); }
