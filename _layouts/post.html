@@ -17,15 +17,14 @@ layout: default
       <p class="post-taxonomy">
         {%- if page.categories -%}
           <span class="post-categories">
-            <strong>Categories:</strong>
             {%- for cat in page.categories -%}
               <a class="category" href="{{ '/categories/' | relative_url }}?category={{ cat | slugify }}">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
             {%- endfor -%}
           </span>
         {%- endif -%}
+        <strong>|</strong>
         {%- if page.tags -%}
           <span class="post-tags">
-            <strong>Tags:</strong>
             {%- for tag in page.tags -%}
               <a class="tag p-category" href="{{ '/tags/' | relative_url }}?tag={{ tag | slugify }}">#{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
             {%- endfor -%}
