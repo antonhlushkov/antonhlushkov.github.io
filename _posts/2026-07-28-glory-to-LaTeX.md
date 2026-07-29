@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Glory To LaTeX
-tags: latex, typography 
+tags: latex typography 
 categories: Technology
 ---
 
