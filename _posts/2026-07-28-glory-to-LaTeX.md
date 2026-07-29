@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Glory To LaTeX
+tags: hey
+categories: bla
 ---
 
 # h1 Heading 8-)
