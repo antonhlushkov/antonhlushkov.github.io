@@ -1,0 +1,40 @@
+---
+layout: default
+title: Tags
+---
+
+<h1>Tags</h1>
+
+<nav class="tags-list">
+  <ul>
+    {%- for tag in site.tags -%}
+      <li><a href="{{ '/tags/' | relative_url }}?tag={{ tag[0] | slugify }}">{{ tag[0] }} ({{ tag[1].size }})</a></li>
+    {%- endfor -%}
+  </ul>
+</nav>
+
+<section class="posts-archive">
+  {%- for post in site.posts -%}
+    <article class="archive-post" data-tags="{%- for t in post.tags -%}{{ t | slugify }} {% endfor -%}" data-categories="{%- for c in post.categories -%}{{ c | slugify }} {% endfor -%}">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+      <p class="meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+    </article>
+  {%- endfor -%}
+</section>
+
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const tag = params.get('tag');
+  if (!tag) return;
+  const posts = document.querySelectorAll('.archive-post');
+  posts.forEach(p => {
+    const tags = p.getAttribute('data-tags') || '';
+    if (tags.split(/\s+/).includes(tag)) {
+      p.style.display = '';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+})();
+</script>

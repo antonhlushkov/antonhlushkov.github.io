@@ -1,0 +1,40 @@
+---
+layout: default
+title: Categories
+---
+
+<h1>Categories</h1>
+
+<nav class="categories-list">
+  <ul>
+    {%- for cat in site.categories -%}
+      <li><a href="{{ '/categories/' | relative_url }}?category={{ cat[0] | slugify }}">{{ cat[0] }} ({{ cat[1].size }})</a></li>
+    {%- endfor -%}
+  </ul>
+</nav>
+
+<section class="posts-archive">
+  {%- for post in site.posts -%}
+    <article class="archive-post" data-tags="{%- for t in post.tags -%}{{ t | slugify }} {% endfor -%}" data-categories="{%- for c in post.categories -%}{{ c | slugify }} {% endfor -%}">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+      <p class="meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+    </article>
+  {%- endfor -%}
+</section>
+
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const category = params.get('category');
+  if (!category) return;
+  const posts = document.querySelectorAll('.archive-post');
+  posts.forEach(p => {
+    const cats = p.getAttribute('data-categories') || '';
+    if (cats.split(/\s+/).includes(category)) {
+      p.style.display = '';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+})();
+</script>
